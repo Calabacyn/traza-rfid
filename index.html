@@ -67,6 +67,11 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 #s1 .team b{display:block;font-size:13px;letter-spacing:.14em;color:var(--steel)}
 #s1 .hero{position:absolute;right:60px;top:110px;width:640px}
 #s1 .lane{position:absolute;left:0;right:0;bottom:44px;height:150px}
+#s1 .lane svg{position:absolute;inset:0}
+#s1 .op{position:absolute;left:0;bottom:6px;width:210px;animation-delay:-5s!important}
+#s1 .op img{display:block;width:100%;height:auto}
+.slide.active .op img{animation:step .45s ease-in-out infinite alternate}
+@keyframes step{from{transform:translateY(0) rotate(0)}to{transform:translateY(-4px) rotate(-.6deg)}}
 .slide.active .roll{animation:roll 16s linear infinite}
 @keyframes roll{from{transform:translateX(-300px)}to{transform:translateX(1750px)}}
 .waves path{opacity:0}
@@ -318,19 +323,8 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
   </svg>
 
   <div class="lane">
-    <svg width="1600" height="150" viewBox="0 0 1600 150">
-      <line x1="0" y1="140" x2="1600" y2="140" class="ink" stroke-dasharray="14 10"/>
-      <g class="roll">
-        <g transform="translate(0 140)">
-          <rect x="0" y="-26" width="130" height="12" fill="#1c1d1f"/>
-          <circle cx="16" cy="-8" r="8" fill="#ebe7de" class="ink"/><circle cx="114" cy="-8" r="8" fill="#ebe7de" class="ink"/>
-          <rect x="8" y="-74" width="56" height="48" fill="#c79a5e" class="ink"/><use href="#chip" x="36" y="-50"/>
-          <rect x="64" y="-66" width="56" height="40" fill="#bfe6f5" class="ink"/><use href="#snow" x="92" y="-46"/>
-          <line x1="0" y1="-20" x2="-28" y2="-60" class="ink"/>
-        </g>
-        <g data-fig="pose=push;x=-56;y=140;s=1.05;prop=helmet;walk=1"></g>
-      </g>
-    </svg>
+    <svg width="1600" height="150" viewBox="0 0 1600 150"><line x1="0" y1="146" x2="1600" y2="146" class="ink" stroke-dasharray="14 10"/></svg>
+    <div class="roll op"><img src="img/operario-zorra.png" alt="Operario empujando una zorra eléctrica con cajas"></div>
   </div>
 </section>
 
