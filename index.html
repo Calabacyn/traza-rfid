@@ -68,10 +68,12 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 #s1 .hero{position:absolute;right:60px;top:110px;width:640px}
 #s1 .lane{position:absolute;left:0;right:0;bottom:44px;height:150px}
 #s1 .lane svg{position:absolute;inset:0}
-#s1 .op{position:absolute;left:0;bottom:6px;width:210px;animation-delay:-5s!important}
-#s1 .op img{display:block;width:100%;height:auto}
-.slide.active .op img{animation:step .45s ease-in-out infinite alternate}
-@keyframes step{from{transform:translateY(0) rotate(0)}to{transform:translateY(-4px) rotate(-.6deg)}}
+#s1 .op{position:absolute;left:0;bottom:4px;width:240px;animation-duration:34s!important;animation-delay:-9s!important}
+#s1 .walker{position:relative}
+#s1 .walker img{display:block;width:100%;height:auto}
+#s1 .walker svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#s1 .legs path{fill:none;stroke:#242525;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+#s1 .spokes{fill:none;stroke:#242525;stroke-width:4;stroke-linecap:round;opacity:.55}
 .slide.active .roll{animation:roll 16s linear infinite}
 @keyframes roll{from{transform:translateX(-300px)}to{transform:translateX(1750px)}}
 .waves path{opacity:0}
@@ -93,7 +95,8 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 @keyframes shuf{0%,100%{transform:translate(0,0)}50%{transform:translate(8px,-6px) rotate(3deg)}}
 .slide.active .qm{animation:qm 1.8s ease-in-out infinite}
 @keyframes qm{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-10px);opacity:1}}
-.slide.active .road{animation:road .6s linear infinite}
+.slide.active .road{animation:roadBack .6s linear infinite}
+@keyframes roadBack{to{stroke-dashoffset:60}}
 @keyframes road{to{stroke-dashoffset:-60}}
 .merc{transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.25)}
 .slide.active .merc{animation:merc 6s ease-in infinite}
@@ -101,10 +104,74 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 .slide.active .drop{animation:drop 6s ease-in infinite}
 @keyframes drop{0%,78%{transform:translate(0,0);opacity:1}92%{transform:translate(70px,95px) rotate(40deg);opacity:1}100%{transform:translate(70px,95px) rotate(40deg);opacity:0}}
 
+.rumble{animation:rumble .35s ease-in-out infinite alternate}
+@keyframes rumble{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+image.jab,image.fidget,image.idle{transform-box:fill-box;transform-origin:50% 100%}
+.slide.active image.jab{animation:jab 1.6s ease-in-out infinite}
+.slide.active image.fidget{animation:fidget .28s ease-in-out infinite alternate}
+.slide.active image.idle{animation:idle 1.4s ease-in-out infinite alternate}
+@keyframes jab{0%,55%,100%{transform:translateX(0)}65%{transform:translateX(-5px)}75%{transform:translateX(0)}85%{transform:translateX(-5px)}}
+@keyframes fidget{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+@keyframes idle{to{transform:translateY(-2px)}}
+#s10 .crew .mate{position:relative;display:block;height:150px;aspect-ratio:235/480;margin:0 auto 6px}
+#s10 .crew .mate img{position:absolute;inset:0;width:100%;height:100%}
+#s10 .crew .wv{transform-origin:36.65% 34.21%}
+.slide.active #s10 .crew .wv,#s10.active .crew .wv{animation:hand2 .5s ease-in-out infinite alternate}
+@keyframes hand2{from{transform:rotate(-14deg)}to{transform:rotate(10deg)}}
+image.hop{transform-box:fill-box;transform-origin:50% 100%}
+.slide.active image.hop{animation:hop .45s ease-in-out infinite alternate}
+@keyframes hop{to{transform:translateY(-6px)}}
+.wglow{fill:#ff6a3d;opacity:.25}
+.slide.active .wglow{animation:wglow .55s ease-in-out infinite alternate}
+@keyframes wglow{to{opacity:.85}}
+#s10 .dancer{position:absolute;right:150px;top:270px;height:300px;aspect-ratio:321/500}
+#s10 .dj{position:relative;width:100%;height:100%;transform-origin:50% 100%}
+#s10 .dj img,#s10 .dj svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#s10.active .dj{animation:dance .9s ease-in-out infinite}
+@keyframes dance{0%,100%{transform:translateY(0) rotate(-5deg)}25%{transform:translateY(-12px) rotate(0)}50%{transform:translateY(0) rotate(5deg)}75%{transform:translateY(-12px) rotate(0)}}
+#splano .legend .signal{margin-top:10px}
+#splano .sg{position:relative;height:200px;aspect-ratio:422/500;margin:0 auto}
+#splano .sg img,#splano .sg svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#splano .sg-arm{transform-origin:47.75% 41.52%}
+#splano.active .sg-arm{animation:sgarm 1.1s ease-in-out infinite}
+@keyframes sgarm{50%{transform:rotate(-32deg)}}
+#s9 .risks{margin-right:300px}
+#s9 .thinker{position:absolute;right:90px;top:330px;height:400px;aspect-ratio:406/700}
+#s9 .thinker img,#s9 .thinker svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#s9 .bub{fill:#fff;stroke:var(--ink);stroke-width:7}
+#s9 .dot{fill:var(--ink);opacity:.2}
+#s9.active .dot{animation:dot 1.2s ease-in-out infinite}
+@keyframes dot{0%,60%,100%{opacity:.2}30%{opacity:1}}
 /* ---------- 03 actores ---------- */
 .actors{display:grid;grid-template-columns:repeat(5,1fr);gap:22px;margin-top:40px}
 .actor{border:3px solid var(--ink);background:var(--paper);padding:0 0 18px;position:relative}
 .actor svg{display:block;width:100%;height:220px;background:var(--paper2);border-bottom:3px solid var(--ink)}
+.actor .pic{height:220px;background:var(--paper2);border-bottom:3px solid var(--ink);display:flex;justify-content:center;align-items:flex-end;overflow:hidden}
+.actor .doc{position:relative;height:208px;aspect-ratio:358/700}
+.actor .doc img{position:absolute;inset:0;width:100%;height:100%}
+.actor .doc .wave{transform-origin:57.5% 34.34%}
+.slide.active .actor .doc .wave{animation:hand .55s ease-in-out infinite alternate}
+@keyframes hand{from{transform:rotate(-12deg)}to{transform:rotate(7deg)}}
+.actor .insp{position:relative;height:208px;aspect-ratio:406/700;transform-origin:50% 100%}
+.actor .insp img,.actor .insp svg{position:absolute;inset:0;width:100%;height:100%;background:none;border:0}
+.actor .insp .tick{fill:none;stroke:var(--green);stroke-width:11;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:70;stroke-dashoffset:70}
+.slide.active .actor .insp{animation:breathe 3s ease-in-out infinite}
+.slide.active .actor .insp .tick{animation:tick 3s ease-in-out infinite}
+@keyframes breathe{50%{transform:scaleY(1.012)}}
+@keyframes tick{0%,35%{stroke-dashoffset:70;opacity:1}55%,85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+.actor .fx{position:relative;height:208px;transform-origin:50% 100%}
+.actor .fx img,.actor .fx svg{position:absolute;inset:0;width:100%;height:100%;background:none;border:0;overflow:visible}
+.actor .sweat{fill:var(--ice-l);stroke:var(--ink);stroke-width:3;opacity:0}
+.slide.active .actor .pac{animation:sway 2.4s ease-in-out infinite alternate}
+.slide.active .actor .sweat{animation:sweat 1.65s ease-in infinite}
+.slide.active .actor .carry{animation:carry .42s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2.5deg)}to{transform:rotate(2.5deg)}}
+@keyframes sweat{0%{opacity:0;translate:0 0}20%{opacity:1}100%{opacity:0;translate:0 26px}}
+@keyframes carry{from{transform:translateY(0) rotate(0)}to{transform:translateY(-4px) rotate(-1.2deg)}}
+.actor .ger .swing{transform-origin:29.27% 62.53%}
+.slide.active .actor .ger{animation:carry .5s ease-in-out infinite alternate}
+.slide.active .actor .ger .swing{animation:swing .5s ease-in-out infinite alternate}
+@keyframes swing{from{transform:rotate(-6deg)}to{transform:rotate(5deg)}}
 .actor h3{font-family:var(--stencil);font-size:34px;text-transform:uppercase;padding:14px 16px 6px;line-height:.95}
 .actor p{font-size:18px;line-height:1.35;padding:0 16px}
 .actor .n{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:13px;background:var(--ink);color:var(--yellow);padding:2px 7px}
@@ -270,6 +337,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
     <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
     <pattern id="hz" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="22" height="22" fill="#f3c623"/><rect width="11" height="22" fill="#1c1d1f"/></pattern>
     <pattern id="ftH" width=".8" height=".8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width=".8" height=".8" fill="rgba(214,58,47,.12)"/><rect width=".22" height=".8" fill="rgba(214,58,47,.55)"/></pattern>
+    <filter id="glow" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="7"/></filter>
     <g id="snow"><path d="M0-9V9M-8-4.5 8 4.5M-8 4.5 8-4.5" stroke="#1c1d1f" stroke-width="2.2" stroke-linecap="round"/></g>
     <g id="chip"><rect x="-7" y="-5" width="14" height="10" rx="1.5" fill="#1c1d1f"/><path d="M-4 0h8M0-3v6" stroke="#f3c623" stroke-width="1.6"/></g>
   </defs>
@@ -306,9 +374,9 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
     <g>
       <rect x="262" y="330" width="120" height="16" fill="#1c1d1f"/>
       <circle cx="282" cy="356" r="10" fill="#ebe7de" class="ink"/><circle cx="362" cy="356" r="10" fill="#ebe7de" class="ink"/>
-      <rect x="272" y="262" width="62" height="68" fill="#bfe6f5" class="ink"/><use href="#snow" x="303" y="296"/>
-      <rect x="334" y="280" width="44" height="50" fill="#c79a5e" class="ink"/><use href="#chip" x="356" y="305"/>
-      <rect x="290" y="230" width="44" height="32" fill="#c79a5e" class="ink"/><use href="#chip" x="312" y="246"/>
+      <image href="img/caja-vacunas.png" x="268" y="270.2" width="64" height="59.8"/>
+      <image href="img/caja-chip-1.png" x="333" y="285.5" width="48" height="44.5"/>
+      <image href="img/caja-chip-2.png" x="282" y="234.0" width="40" height="40.0"/>
     </g>
     <!-- readout bubble -->
     <g transform="translate(470 20)">
@@ -319,12 +387,23 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
     </g>
     <path d="M470 116 L440 150" class="ink"/>
     <!-- operator -->
-    <g data-fig="pose=point;x=545;y=440;s=1.7;prop=helmet;flip=-1"></g>
+    <image class="jab" href="img/operario-senalando.png" x="472" y="240" width="121.3" height="200"/>
   </svg>
 
   <div class="lane">
     <svg width="1600" height="150" viewBox="0 0 1600 150"><line x1="0" y1="146" x2="1600" y2="146" class="ink" stroke-dasharray="14 10"/></svg>
-    <div class="roll op"><img src="img/operario-zorra.png" alt="Operario empujando una zorra eléctrica con cajas"></div>
+    <div class="roll op"><div class="walker" id="walker">
+      <img src="img/operario-zorra-sin-piernas.png" alt="Operario empujando una zorra eléctrica con cajas">
+      <svg viewBox="0 0 900 623" aria-hidden="true">
+        <defs>
+          <clipPath id="wc1"><rect x="440" y="580" width="110" height="50"/></clipPath>
+          <clipPath id="wc2"><rect x="760" y="580" width="90" height="50"/></clipPath>
+        </defs>
+        <g class="legs" filter="url(#rough)"><path d="M214,198 L147,374 M223,213 L207,215"/><path id="legA"/><path id="legB"/></g>
+        <g clip-path="url(#wc1)"><g id="wheel1" class="spokes"><circle cx="491" cy="575" r="20"/><line x1="491" y1="551" x2="491" y2="563"/><line x1="491" y1="587" x2="491" y2="599"/><line x1="467" y1="575" x2="479" y2="575"/><line x1="503" y1="575" x2="515" y2="575"/></g></g>
+        <g clip-path="url(#wc2)"><g id="wheel2" class="spokes"><circle cx="807" cy="575" r="16"/><line x1="807" y1="555" x2="807" y2="565"/><line x1="807" y1="585" x2="807" y2="595"/><line x1="787" y1="575" x2="797" y2="575"/><line x1="817" y1="575" x2="827" y2="575"/></g></g>
+      </svg>
+    </div></div>
   </div>
 </section>
 
@@ -339,14 +418,14 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
       <svg viewBox="0 0 680 300">
         <line x1="20" y1="270" x2="660" y2="270" class="ink"/>
         <g class="shuffle"><rect x="70" y="200" width="70" height="70" fill="#c79a5e" class="ink"/><text x="105" y="242" text-anchor="middle" font-family="JetBrains Mono" font-size="12" font-weight="700">GASAS</text></g>
-        <g class="shuffle b"><rect x="140" y="215" width="62" height="55" fill="#bfe6f5" class="ink"/><use href="#snow" x="171" y="242"/></g>
-        <g class="shuffle c"><rect x="98" y="148" width="64" height="52" fill="#bfe6f5" class="ink"/><use href="#snow" x="130" y="174"/></g>
+        <g class="shuffle b"><image href="img/caja-vacunas.png" x="140" y="211.7" width="62" height="58.3"/></g>
+        <g class="shuffle c"><image href="img/caja-vacunas.png" x="98" y="142.7" width="62" height="58.3"/></g>
         <g class="shuffle"><rect x="202" y="225" width="58" height="45" fill="#c79a5e" class="ink"/><text x="231" y="252" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700">JERINGAS</text></g>
         <g class="shuffle b"><rect x="430" y="210" width="66" height="60" fill="#c79a5e" class="ink"/></g>
-        <g class="shuffle c"><rect x="496" y="230" width="58" height="40" fill="#bfe6f5" class="ink"/><use href="#snow" x="525" y="250"/></g>
-        <g data-fig="pose=head;x=345;y=270;s=1.75;prop=helmet"></g>
+        <g class="shuffle c"><image href="img/caja-vacunas.png" x="496" y="221.1" width="52" height="48.9"/></g>
+        <image class="fidget" href="img/operario-confundido.png" x="300" y="85" width="91.6" height="185"/>
         <g font-family="Big Shoulders Stencil Display" font-weight="900" font-size="54">
-          <text class="qm" x="285" y="80">?</text><text class="qm" x="388" y="62" style="animation-delay:.6s">?</text><text class="qm" x="430" y="110" style="animation-delay:1.2s">?</text>
+          <text class="qm" x="245" y="105">?</text><text class="qm" x="415" y="72" style="animation-delay:.6s">?</text><text class="qm" x="455" y="135" style="animation-delay:1.2s">?</text>
         </g>
         <text x="660" y="170" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#59636b">¿cuál va a frío? ¿cuál vence?</text>
       </svg>
@@ -358,15 +437,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
         <line x1="0" y1="262" x2="680" y2="262" class="ink"/>
         <line x1="0" y1="284" x2="680" y2="284" stroke="#1c1d1f" stroke-width="4" stroke-dasharray="34 26" class="road"/>
         <!-- truck -->
-        <g class="bob">
-          <rect x="60" y="110" width="250" height="130" fill="#ebe7de" class="ink"/>
-          <use href="#snow" x="185" y="160" transform="translate(-370 -320) scale(3)"/>
-          <text x="185" y="225" text-anchor="middle" font-family="JetBrains Mono" font-size="14" font-weight="700">REFRIGERADO</text>
-          <path d="M310 150h60l34 44v46h-94z" fill="#f3c623" class="ink"/>
-          <path d="M322 162h40l22 30h-62z" fill="#bfe6f5" class="ink"/>
-          <circle cx="120" cy="246" r="20" fill="#1c1d1f"/><circle cx="350" cy="246" r="20" fill="#1c1d1f"/>
-          <circle cx="120" cy="246" r="7" fill="#ebe7de"/><circle cx="350" cy="246" r="7" fill="#ebe7de"/>
-        </g>
+        <g transform="translate(50 43) scale(0.4)"><g class="rumble"><image href="img/camion-cuerpo.png" width="900" height="557"/><use href="#snow" transform="translate(297 190) scale(6)"/><text x="297" y="330" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="40" fill="#1c1d1f">REFRIGERADO</text></g><g><image href="img/camion-rueda1.png" width="900" height="557"/><circle cx="720.3" cy="477.6" r="5" fill="#4a4d50"/><circle cx="704.3" cy="493.6" r="5" fill="#4a4d50"/><circle cx="688.3" cy="477.6" r="5" fill="#4a4d50"/><circle cx="704.3" cy="461.6" r="5" fill="#4a4d50"/><animateTransform attributeName="transform" type="rotate" from="0 704.3 477.6" to="360 704.3 477.6" dur="0.9s" repeatCount="indefinite"/></g><g><image href="img/camion-rueda2.png" width="900" height="557"/><circle cx="195.9" cy="477.6" r="5" fill="#4a4d50"/><circle cx="179.9" cy="493.6" r="5" fill="#4a4d50"/><circle cx="163.9" cy="477.6" r="5" fill="#4a4d50"/><circle cx="179.9" cy="461.6" r="5" fill="#4a4d50"/><animateTransform attributeName="transform" type="rotate" from="0 179.9 477.6" to="360 179.9 477.6" dur="0.9s" repeatCount="indefinite"/></g></g>
         <!-- thermometer -->
         <g transform="translate(470 40)">
           <rect x="0" y="0" width="30" height="170" rx="15" fill="#ebe7de" class="ink"/>
@@ -376,7 +447,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
           <line x1="34" y1="140" x2="48" y2="140" class="ink"/><text x="54" y="146" font-family="JetBrains Mono" font-size="15" font-weight="700">2°C</text>
         </g>
         <!-- dropping box + trash -->
-        <g class="drop"><rect x="560" y="130" width="40" height="34" fill="#bfe6f5" class="ink"/><use href="#snow" x="580" y="147"/></g>
+        <g class="drop"><image href="img/conservadora.png" x="556" y="121.1" width="48" height="44.9"/></g>
         <g transform="translate(610 205)"><path d="M0 0h56l-6 56h-44z" fill="#a9b0b4" class="ink"/><line x1="-6" y1="0" x2="62" y2="0" class="ink"/><line x1="18" y1="12" x2="20" y2="46" class="ink"/><line x1="38" y1="12" x2="36" y2="46" class="ink"/></g>
         <text x="20" y="40" font-family="JetBrains Mono" font-size="14" fill="#59636b">VIAJE LARGO · km 600…</text>
       </svg>
@@ -392,19 +463,33 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
   <p class="lead rv" style="--d:.1">Cinco actores, cinco necesidades. La solución tiene que responder a todos.</p>
   <div class="actors">
     <div class="actor rv" style="--d:.2"><span class="n">01</span>
-      <svg viewBox="-80 -125 160 140"><line x1="-80" y1="0" x2="80" y2="0" class="ink"/><g class="bob"><g data-fig="pose=stand;s=1.2;prop=doctor"></g></g></svg>
+      <div class="pic"><div class="doc">
+        <img src="img/medico-base.png" alt="Médico saludando">
+        <img class="wave" src="img/medico-brazo.png" alt="">
+      </div></div>
       <h3>Hospitales y médicos</h3><p>Recibir el insumo correcto, a tiempo. Un retraso en una cirugía puede costar una vida.</p></div>
     <div class="actor rv" style="--d:.3"><span class="n">02</span>
-      <svg viewBox="-80 -125 160 140"><line x1="-80" y1="0" x2="80" y2="0" class="ink"/><g class="bob" style="animation-delay:-.5s"><g data-fig="pose=stand;s=1.2;prop=patient"></g></g></svg>
+      <div class="pic"><div class="fx pac" style="aspect-ratio:350/700">
+        <img src="img/paciente.png" alt="Paciente con fiebre">
+        <svg viewBox="0 0 350 700" aria-hidden="true"><path class="sweat" d="M0,-14 C6,-4 9,2 9,6 A9,9 0 0 1 -9,6 C-9,2 -6,-4 0,-14Z" transform="translate(268 70)"/><path class="sweat" d="M0,-14 C6,-4 9,2 9,6 A9,9 0 0 1 -9,6 C-9,2 -6,-4 0,-14Z" transform="translate(290 140)" style="animation-delay:.55s"/><path class="sweat" d="M0,-14 C6,-4 9,2 9,6 A9,9 0 0 1 -9,6 C-9,2 -6,-4 0,-14Z" transform="translate(30 70)" style="animation-delay:1.1s"/></svg>
+      </div></div>
       <h3>Pacientes</h3><p>Medicamentos y vacunas sin roturas ni cortes de frío: seguros y efectivos.</p></div>
     <div class="actor rv" style="--d:.4"><span class="n">03</span>
-      <svg viewBox="-80 -125 160 140"><line x1="-80" y1="0" x2="80" y2="0" class="ink"/><g class="bob" style="animation-delay:-1s"><g data-fig="pose=stand;s=1.2;prop=clipboard"></g></g></svg>
+      <div class="pic"><div class="insp">
+        <img src="img/inspector.png" alt="Inspector controlando una planilla">
+        <svg viewBox="0 0 406 700" aria-hidden="true"><g transform="translate(258 402) rotate(22)"><path class="tick" d="M-20,0 L-5,15 L22,-18"/></g></svg>
+      </div></div>
       <h3>Entes reguladores</h3><p>Seguir cada medicamento: destino, cantidades, lotes y vencimientos.</p></div>
     <div class="actor rv" style="--d:.5"><span class="n">04</span>
-      <svg viewBox="-80 -125 160 140"><line x1="-80" y1="0" x2="80" y2="0" class="ink"/><g class="bob" style="animation-delay:-1.5s"><g data-fig="pose=carry;s=1.2;prop=helmet"></g></g></svg>
+      <div class="pic"><div class="fx carry" style="aspect-ratio:563/700">
+        <img src="img/operario-caja.png" alt="Operario cargando una caja">
+      </div></div>
       <h3>Operarios</h3><p>Un método eficiente que evite errores humanos y conflictos laborales.</p></div>
     <div class="actor rv" style="--d:.6"><span class="n">05</span>
-      <svg viewBox="-80 -125 160 140"><line x1="-80" y1="0" x2="80" y2="0" class="ink"/><g class="bob" style="animation-delay:-2s"><g data-fig="pose=stand;s=1.2;prop=tie"></g></g></svg>
+      <div class="pic"><div class="fx ger" style="aspect-ratio:351/700">
+        <img src="img/gerente-base.png" alt="Gerente con maletín">
+        <img class="swing" src="img/gerente-maletin.png" alt="">
+      </div></div>
       <h3>Gerencia</h3><p>Reducir pérdidas económicas, multas y la caída de ventas por mal servicio.</p></div>
   </div>
 </section>
@@ -420,7 +505,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
       <div class="vs">VARIABLE → consumo (kWh) · temperatura (°C)</div>
     </div>
     <div class="rc rv" style="--d:.3">
-      <svg viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" fill="#bfe6f5" class="ink"/><g data-fig="pose=cheer;x=48;y=88;s=.78;prop=helmet"></g></svg>
+      <svg viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" fill="#bfe6f5" class="ink"/><image class="hop" href="img/operario-contento.png" x="24.5" y="10" width="46.9" height="80"/></svg>
       <h3>Empleo</h3><p>Automatizar no puede significar despedir. Se hace de forma controlada y se crean puestos de supervisión.</p>
       <div class="vs">VARIABLE → puestos conservados / reconvertidos</div>
     </div>
@@ -452,7 +537,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
           <rect x="54" y="102" width="44" height="38" fill="#c79a5e" class="ink"/><text x="66" y="132">D</text>
           <rect x="112" y="102" width="44" height="38" fill="#d63a2f" class="ink"/><text x="125" y="132" fill="#fff">!</text>
         </g>
-        <g data-fig="pose=point;x=320;y=190;s=1.3;prop=helmet;flip=-1"></g>
+        <image class="jab" href="img/operario-senalando.png" x="250" y="40" width="91.0" height="150"/>
       </svg>
       <div class="body"><span class="num">ALTERNATIVA 01</span><h3>Reorganización manual</h3>
         <p>Productos ordenados alfabéticamente y por importancia. Personal específico, etiquetas impresas y registro en PC.</p>
@@ -464,8 +549,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
         <g class="ink" fill="none"><rect x="30" y="40" width="210" height="150"/><line x1="30" y1="90" x2="240" y2="90"/><line x1="30" y1="140" x2="240" y2="140"/></g>
         <rect x="44" y="52" width="50" height="36" fill="#c79a5e" class="ink"/><rect x="110" y="52" width="50" height="36" fill="#c79a5e" class="ink"/><rect x="176" y="102" width="50" height="36" fill="#c79a5e" class="ink"/>
         <circle class="led" cx="69" cy="96" r="6" fill="#ebe7de" stroke="#1c1d1f" stroke-width="2"/><circle class="led b" cx="135" cy="96" r="6" fill="#ebe7de" stroke="#1c1d1f" stroke-width="2"/><circle class="led c" cx="201" cy="146" r="6" fill="#ebe7de" stroke="#1c1d1f" stroke-width="2"/>
-        <g data-fig="pose=point;x=320;y=190;s=1.3;prop=helmet;flip=-1"></g>
-        <g transform="translate(266 98) rotate(-20)"><rect x="0" y="0" width="30" height="14" fill="#1c1d1f"/><rect x="18" y="10" width="10" height="20" fill="#1c1d1f"/><line x1="-30" y1="7" x2="0" y2="7" stroke="#d63a2f" stroke-width="3"/></g>
+        <image class="idle" href="img/operario-pistola.png" x="236" y="40" width="142.2" height="150"/>
       </svg>
       <div class="body"><span class="num">ALTERNATIVA 02</span><h3>Mixto · LED + código de barras</h3>
         <p>Pistolas lectoras al recibir, stock digital y luces LED que indican qué caja tomar. Vía rápida separada para emergencias.</p>
@@ -474,12 +558,10 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
     <div class="alt pick rv" style="--d:.45">
       <svg viewBox="0 0 400 210">
         <line x1="0" y1="190" x2="400" y2="190" class="ink"/>
-        <rect x="120" y="50" width="16" height="140" fill="url(#hz)" class="ink"/><rect x="250" y="50" width="16" height="140" fill="url(#hz)" class="ink"/><rect x="112" y="36" width="162" height="20" fill="#1c1d1f"/>
+        <rect x="250" y="50" width="16" height="140" fill="url(#hz)" class="ink"/>
+        <image href="img/operario-carrito.png" x="71" y="75" width="161.3" height="115"/><use href="#chip" transform="translate(194 144) scale(1.5)"/>
+        <rect x="120" y="50" width="16" height="140" fill="url(#hz)" class="ink"/><rect x="112" y="36" width="162" height="20" fill="#1c1d1f"/>
         <g class="waves" fill="none" stroke="#3fb4dd" stroke-width="4" stroke-linecap="round"><path d="M146 100q12 24 0 48"/><path d="M156 88q20 36 0 72"/><path d="M166 76q28 48 0 96"/></g>
-        <rect x="176" y="130" width="50" height="44" fill="#bfe6f5" class="ink"/><use href="#chip" x="201" y="152"/>
-        <rect x="160" y="174" width="80" height="8" fill="#1c1d1f"/>
-        <line x1="240" y1="176" x2="268" y2="122" class="ink"/>
-        <g data-fig="pose=push;x=300;y=190;s=1.3;prop=helmet;flip=-1"></g>
       </svg>
       <div class="body"><span class="num">ALTERNATIVA 03</span><h3>Mixto · RFID + asistencia humana</h3>
         <p>Cada bulto lleva un chip RFID; los portales leen lotes y vencimientos en masa. Estanterías de alta densidad y zorras eléctricas.</p>
@@ -515,10 +597,8 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
     <text x="1040" y="436" font-family="JetBrains Mono" font-weight="700" font-size="16" fill="#d63a2f">CARRIL FAST-TRACK · CIRUGÍAS →</text>
     <!-- truck at dock -->
     <g>
-      <rect x="10" y="230" width="60" height="110" fill="#f3c623" class="ink"/><rect x="18" y="244" width="40" height="34" fill="#bfe6f5" class="ink"/>
-      <rect x="70" y="200" width="160" height="140" fill="#ebe7de" class="ink"/><use href="#snow" x="150" y="250" transform="translate(-150 -250) scale(2)" />
-      <circle cx="50" cy="352" r="22" fill="#1c1d1f"/><circle cx="190" cy="352" r="22" fill="#1c1d1f"/>
-      <text x="150" y="190" text-anchor="middle" font-family="JetBrains Mono" font-size="14" font-weight="700">RECEPCIÓN</text>
+      <g transform="translate(244 240) scale(-0.2556 0.2556)"><image href="img/camion-cuerpo.png" width="900" height="557"/><image href="img/camion-rueda1.png" width="900" height="557"/><image href="img/camion-rueda2.png" width="900" height="557"/><use href="#snow" transform="translate(470 150) scale(5)"/></g>
+      <text x="150" y="226" text-anchor="middle" font-family="JetBrains Mono" font-size="14" font-weight="700">RECEPCIÓN</text>
     </g>
     <!-- portal in -->
     <g>
@@ -540,11 +620,8 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
     <g>
       <rect x="560" y="70" width="260" height="310" fill="none" class="ink"/>
       <g class="ink"><line x1="560" y1="132" x2="820" y2="132"/><line x1="560" y1="194" x2="820" y2="194"/><line x1="560" y1="256" x2="820" y2="256"/><line x1="560" y1="318" x2="820" y2="318"/><line x1="647" y1="70" x2="647" y2="380"/><line x1="733" y1="70" x2="733" y2="380"/></g>
-      <g fill="#c79a5e" class="ink">
-        <rect x="575" y="88" width="56" height="44"/><rect x="662" y="88" width="56" height="44"/><rect x="575" y="150" width="56" height="44"/>
-        <rect x="748" y="150" width="56" height="44"/><rect x="662" y="274" width="56" height="44"/><rect x="575" y="336" width="56" height="44"/><rect x="748" y="336" width="56" height="44"/>
-      </g>
-      <g fill="#bfe6f5" class="ink"><rect x="748" y="88" width="56" height="44"/><rect x="575" y="212" width="56" height="44"/><rect x="748" y="274" width="56" height="44"/></g>
+      <g><image href="img/caja-chip-1.png" x="577" y="83.8" width="52" height="48.2"/><image href="img/caja-chip-2.png" x="664" y="84.0" width="48" height="48.0"/><image href="img/caja-chip-1.png" x="577" y="145.8" width="52" height="48.2"/><image href="img/caja-chip-2.png" x="750" y="146.0" width="48" height="48.0"/><image href="img/caja-chip-1.png" x="664" y="269.8" width="52" height="48.2"/><image href="img/caja-chip-2.png" x="577" y="332.0" width="48" height="48.0"/><image href="img/caja-chip-1.png" x="750" y="331.8" width="52" height="48.2"/></g>
+      <g><image href="img/caja-vacunas.png" x="751" y="85.0" width="50" height="47.0"/><image href="img/caja-vacunas.png" x="578" y="209.0" width="50" height="47.0"/><image href="img/caja-vacunas.png" x="751" y="271.0" width="50" height="47.0"/></g>
       <text x="690" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="14" font-weight="700">ESTANTERÍA ALTA DENSIDAD</text>
     </g>
     <!-- exit portal -->
@@ -557,16 +634,10 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
     </g>
     <!-- zorra + operator -->
     <g id="zorra">
-      <g transform="translate(905 380)">
-        <rect x="0" y="-22" width="110" height="10" fill="#1c1d1f"/>
-        <circle cx="12" cy="-6" r="7" fill="#ebe7de" class="ink"/><circle cx="98" cy="-6" r="7" fill="#ebe7de" class="ink"/>
-        <rect x="-26" y="-58" width="26" height="46" fill="#f3c623" class="ink"/>
-        <line x1="-14" y1="-58" x2="-34" y2="-96" class="ink"/>
-      </g>
-      <g data-fig="pose=push;x=857;y=380;s=1.15;prop=helmet;walk=1"></g>
+      <image href="img/operario-zorra.png" x="840" y="250" width="187.8" height="130"/>
     </g>
     <!-- package -->
-    <g id="pkg"><rect width="56" height="44" fill="#bfe6f5" stroke="#1c1d1f" stroke-width="3.5"/><use href="#chip" x="28" y="22"/></g>
+    <g id="pkg"><image href="img/caja-vacunas.png" x="0" y="-8.7" width="56" height="52.7"/><use href="#chip" transform="translate(45.9 24.0) scale(0.93)"/></g>
     <!-- urgent package -->
     <g id="urgent" style="opacity:0"><rect width="70" height="30" fill="#d63a2f" stroke="#1c1d1f" stroke-width="3"/><text x="35" y="20" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#fff">CIRUGÍA</text>
       <g stroke="#d63a2f" stroke-width="3" stroke-linecap="round"><line x1="-14" y1="8" x2="-40" y2="8"/><line x1="-14" y1="20" x2="-30" y2="20"/></g></g>
@@ -724,6 +795,11 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
       <li class="sw" style="display:flex"><i></i>RECORRIDO DE UN BULTO</li>
       <li class="sw" style="display:flex"><i class="r"></i>PEDIDO URGENTE</li>
       <li class="dxf" style="display:block">Archivo para AutoCAD: plano/traza-rfid-planta.dxf · esc. 1:200</li>
+      <li class="signal" style="display:block"><div class="sg">
+        <img src="img/senalero-base.png" alt="Señalero dirigiendo con bastones luminosos">
+        <img class="sg-arm" src="img/senalero-brazo.png" alt="">
+        <svg viewBox="0 0 422 500" aria-hidden="true"><circle class="wglow" cx="34" cy="16" r="22" filter="url(#glow)"/></svg>
+      </div></li>
     </ol>
   </div>
 </section>
@@ -738,21 +814,15 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
       <svg viewBox="0 0 560 300">
         <line x1="0" y1="250" x2="560" y2="250" class="ink"/>
         <line x1="0" y1="272" x2="560" y2="272" stroke="#1c1d1f" stroke-width="4" stroke-dasharray="34 26" class="road"/>
-        <g class="bob">
-          <rect x="70" y="100" width="230" height="130" fill="#ebe7de" class="ink"/>
-          <rect x="140" y="150" width="70" height="56" fill="#bfe6f5" class="ink"/><use href="#chip" x="175" y="178"/>
-          <path d="M300 140h60l34 44v46h-94z" fill="#f3c623" class="ink"/><path d="M312 152h40l22 30h-62z" fill="#bfe6f5" class="ink"/>
-          <circle cx="125" cy="236" r="20" fill="#1c1d1f"/><circle cx="340" cy="236" r="20" fill="#1c1d1f"/>
-          <circle cx="125" cy="236" r="7" fill="#ebe7de"/><circle cx="340" cy="236" r="7" fill="#ebe7de"/>
-        </g>
-        <g class="waves" fill="none" stroke="#3fb4dd" stroke-width="4" stroke-linecap="round" transform="translate(175 120)">
+        <g transform="translate(55 42) scale(0.38)"><g class="rumble"><image href="img/camion-cuerpo.png" width="900" height="557"/><image href="img/conservadora.png" x="215" y="141.1" width="170" height="158.9"/><use href="#chip" transform="translate(318 278) scale(3)"/></g><g><image href="img/camion-rueda1.png" width="900" height="557"/><circle cx="720.3" cy="477.6" r="5" fill="#4a4d50"/><circle cx="704.3" cy="493.6" r="5" fill="#4a4d50"/><circle cx="688.3" cy="477.6" r="5" fill="#4a4d50"/><circle cx="704.3" cy="461.6" r="5" fill="#4a4d50"/><animateTransform attributeName="transform" type="rotate" from="0 704.3 477.6" to="360 704.3 477.6" dur="0.9s" repeatCount="indefinite"/></g><g><image href="img/camion-rueda2.png" width="900" height="557"/><circle cx="195.9" cy="477.6" r="5" fill="#4a4d50"/><circle cx="179.9" cy="493.6" r="5" fill="#4a4d50"/><circle cx="163.9" cy="477.6" r="5" fill="#4a4d50"/><circle cx="179.9" cy="461.6" r="5" fill="#4a4d50"/><animateTransform attributeName="transform" type="rotate" from="0 179.9 477.6" to="360 179.9 477.6" dur="0.9s" repeatCount="indefinite"/></g></g>
+        <g class="waves" fill="none" stroke="#3fb4dd" stroke-width="4" stroke-linecap="round" transform="translate(168 48)">
           <path d="M-14 -10q14 -14 28 0"/><path d="M-26 -22q26 -26 52 0"/><path d="M-38 -34q38 -38 76 0"/>
         </g>
         <g transform="translate(440 30)">
           <rect width="100" height="70" fill="#1c1d1f"/><text x="50" y="28" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#f3c623">CENTRAL</text>
           <text x="50" y="52" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#3fb4dd">en vivo</text>
         </g>
-        <g data-fig="pose=point;x=500;y=250;s=1.1;prop=helmet;flip=-1"></g>
+        <image class="jab" href="img/operario-senalando.png" x="442" y="120" width="78.9" height="130"/>
       </svg>
       <div class="cmp">
         <div><b>SIN SENSOR</b>Recién al llegar se descubre que se cortó el frío. El insumo se tira.</div>
@@ -787,6 +857,14 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 <section class="slide" id="s9">
   <header class="sh"><b>10</b>Riesgos y cómo los manejamos<span class="stripe"></span></header>
   <h2 class="rv">Ninguna solución es <em>perfecta</em></h2>
+  <div class="thinker rv" style="--d:.7">
+    <img src="img/inspector.png" alt="Inspector pensando">
+    <svg viewBox="0 0 406 700" aria-hidden="true">
+      <circle cx="232" cy="-6" r="11" class="bub"/><circle cx="262" cy="-44" r="17" class="bub"/>
+      <ellipse cx="300" cy="-128" rx="108" ry="62" class="bub"/>
+      <circle class="dot" cx="250" cy="-128" r="13"/><circle class="dot" cx="300" cy="-128" r="13" style="animation-delay:.25s"/><circle class="dot" cx="350" cy="-128" r="13" style="animation-delay:.5s"/>
+    </svg>
+  </div>
   <div class="risks">
     <div class="risk rv" style="--d:.15"><div class="i"><span>01</span></div><div class="p"><b>RIESGO</b>Los líquidos y metales interfieren con la lectura RFID (y las vacunas son líquidas).</div><div class="ar">→</div><div class="m"><b>MITIGACIÓN</b>El tag va en la caja o bulto, no en cada frasco. El código GS1 DataMatrix que ya exige ANMAT queda como respaldo.</div></div>
     <div class="risk rv" style="--d:.3"><div class="i"><span>02</span></div><div class="p"><b>RIESGO</b>Es la alternativa con mayor inversión inicial.</div><div class="ar">→</div><div class="m"><b>MITIGACIÓN</b>Implementación por etapas: primero el portal de recepción y la cámara de frío; después el resto.</div></div>
@@ -801,13 +879,17 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
   <div class="big rv">Tecnología que <span class="ice">lee</span>,<br><span>personas que deciden.</span></div>
   <p class="lead rv" style="--d:.2;margin-top:24px">Menos errores y desperdicio, cumplimiento de la trazabilidad legal y operarios que dejan el trabajo pesado para gestionar lo importante.</p>
   <div class="q rv" style="--d:.5">¿PREGUNTAS?</div>
+  <div class="dancer rv" style="--d:.6"><div class="dj">
+    <img src="img/senalero-baile.png" alt="Señalero bailando con bastones luminosos">
+    <svg viewBox="0 0 321 500" aria-hidden="true"><circle class="wglow" cx="66" cy="62" r="18" filter="url(#glow)"/><circle class="wglow" cx="248" cy="52" r="18" filter="url(#glow)" style="animation-delay:.3s"/></svg>
+  </div></div>
   <div class="crew rv" style="--d:.35">
-    <div><svg viewBox="-60 -125 120 130"><g data-fig="pose=wave;s=1.25;prop=helmet"></g></svg>MATIAS</div>
-    <div><svg viewBox="-60 -125 120 130"><g data-fig="pose=wave;s=1.25;prop=helmet"></g></svg>LARA</div>
-    <div><svg viewBox="-60 -125 120 130"><g data-fig="pose=wave;s=1.25;prop=helmet"></g></svg>LAUTARO</div>
-    <div><svg viewBox="-60 -125 120 130"><g data-fig="pose=wave;s=1.25;prop=helmet"></g></svg>MIA</div>
-    <div><svg viewBox="-60 -125 120 130"><g data-fig="pose=wave;s=1.25;prop=helmet"></g></svg>MORENA</div>
-    <div><svg viewBox="-60 -125 120 130"><g data-fig="pose=wave;s=1.25;prop=helmet"></g></svg>JUAN IGNACIO</div>
+    <div><span class="mate"><img src="img/integrante-base.png" alt=""><img class="wv" src="img/integrante-brazo.png" alt="" style="animation-delay:-0.00s"></span>MATIAS</div>
+    <div><span class="mate"><img src="img/integrante-base.png" alt=""><img class="wv" src="img/integrante-brazo.png" alt="" style="animation-delay:-0.17s"></span>LARA</div>
+    <div><span class="mate"><img src="img/integrante-base.png" alt=""><img class="wv" src="img/integrante-brazo.png" alt="" style="animation-delay:-0.34s"></span>LAUTARO</div>
+    <div><span class="mate"><img src="img/integrante-base.png" alt=""><img class="wv" src="img/integrante-brazo.png" alt="" style="animation-delay:-0.51s"></span>MIA</div>
+    <div><span class="mate"><img src="img/integrante-base.png" alt=""><img class="wv" src="img/integrante-brazo.png" alt="" style="animation-delay:-0.68s"></span>MORENA</div>
+    <div><span class="mate"><img src="img/integrante-base.png" alt=""><img class="wv" src="img/integrante-brazo.png" alt="" style="animation-delay:-0.85s"></span>JUAN IGNACIO</div>
   </div>
 </section>
 
@@ -896,12 +978,12 @@ const stepEls = [...document.querySelectorAll('#steps .step')];
 const pwIn = document.getElementById('pwIn'), pwOut = document.getElementById('pwOut');
 const ro = ['ro1', 'ro2', 'ro3'].map(id => document.getElementById(id));
 const STEPS = [
-  {pkg:[160, 296], z:0,   ro:['ESPERANDO LECTURA…', '', '']},
+  {pkg:[118, 300], z:0,   ro:['ESPERANDO LECTURA…', '', '']},
   {pkg:[362, 336], z:0,   ro:['LOTE A-2231 · ×24 BULTOS', 'VTO 03/2027', 'TEMP 4,2 °C ✓'], pin:true},
   {pkg:[748, 212], z:0,   ro:['UBICACIÓN ASIGNADA', 'RACK B · NIVEL 3', 'TEMP 4,3 °C ✓']},
-  {pkg:[1090, 314], z:160, ro:['PEDIDO #0412', 'HOSPITAL DESTINO', 'PREPARANDO…']},
-  {pkg:[1330, 336], z:160, ro:['DESPACHO CONFIRMADO', 'LOTE A-2231 → #0412', 'TEMP 4,4 °C ✓'], pout:true},
-  {pkg:[1330, 336], z:160, ro:['⚠ PRIORIDAD CIRUGÍA', 'PEDIDO #0413', 'CARRIL FAST-TRACK'], urg:true}
+  {pkg:[1099, 262], z:120, ro:['PEDIDO #0412', 'HOSPITAL DESTINO', 'PREPARANDO…']},
+  {pkg:[1330, 336], z:120, ro:['DESPACHO CONFIRMADO', 'LOTE A-2231 → #0412', 'TEMP 4,4 °C ✓'], pout:true},
+  {pkg:[1330, 336], z:120, ro:['⚠ PRIORIDAD CIRUGÍA', 'PEDIDO #0413', 'CARRIL FAST-TRACK'], urg:true}
 ];
 let step = 0, timer = null;
 function setStep(i){
@@ -923,6 +1005,44 @@ function setStep(i){
 function plantStart(){ plantStop(); setStep(0); timer = setInterval(() => setStep((step + 1) % STEPS.length), 3000); }
 function plantStop(){ clearInterval(timer); timer = null; }
 stepEls.forEach((el, k) => el.addEventListener('click', e => { e.stopPropagation(); plantStop(); setStep(k); }));
+
+// ---------- operario caminando (portada) ----------
+const walker = document.getElementById('walker');
+const legEls = [document.getElementById('legA'), document.getElementById('legB')];
+const wheels = [[document.getElementById('wheel1'), 491, 33], [document.getElementById('wheel2'), 807, 28]];
+const HIP = [147, 374], THIGH = 120, SHIN = 117, GROUND = 594;
+const FRONT = 65, BACK = -88, STANCE = 0.6;
+// el pie de apoyo retrocede a la misma velocidad con que avanza el operario: no patina
+const ROLL_S = 34; // = duración del cruce en el CSS (#s1 .op)
+const STEP = (FRONT - BACK) / (STANCE * (2050 / ROLL_S) * (900 / 240));
+function footAt(u){
+  if (u < STANCE) return [HIP[0] + FRONT - (FRONT - BACK) * (u / STANCE), GROUND, 0];
+  const k = (u - STANCE) / (1 - STANCE), e = k * k * (3 - 2 * k);
+  return [HIP[0] + BACK + (FRONT - BACK) * e, GROUND - 30 * Math.sin(Math.PI * k), Math.sin(Math.PI * k)];
+}
+function legPath(u){
+  const [fx, fy, lift] = footAt(u);
+  const dx = fx - HIP[0], dy = fy - HIP[1];
+  const d = Math.min(Math.hypot(dx, dy), THIGH + SHIN - 0.5);
+  const a = Math.atan2(dx, dy);
+  const al = Math.acos((THIGH * THIGH + d * d - SHIN * SHIN) / (2 * THIGH * d));
+  const th = a + al;
+  const k = [HIP[0] + THIGH * Math.sin(th), HIP[1] + THIGH * Math.cos(th)];
+  const ax = HIP[0] + d * Math.sin(a), ay = HIP[1] + d * Math.cos(a);
+  const f = n => n.toFixed(1);
+  return `M${f(HIP[0])},${f(HIP[1])} L${f(k[0])},${f(k[1])} L${f(ax)},${f(ay)} L${f(ax + 24)},${f(ay + 2 - 10 * lift)}`;
+}
+function walkFrame(ts){
+  if (slides[cur].id === 's1') {
+    const u = (ts / 1000 / STEP) % 1;
+    legEls[0].setAttribute('d', legPath(u));
+    legEls[1].setAttribute('d', legPath((u + 0.5) % 1));
+    const deg = (ts / 1000) * 360 / 0.7;
+    wheels.forEach(([el, cx, r]) => el.setAttribute('transform', `rotate(${(deg * 33 / r) % 360} ${cx} 575)`));
+  }
+  requestAnimationFrame(walkFrame);
+}
+requestAnimationFrame(walkFrame);
 
 fit();
 const start = parseInt(location.hash.slice(1), 10);
