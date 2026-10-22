@@ -173,6 +173,54 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 .pw.on path:nth-child(2){animation-delay:.2s}.pw.on path:nth-child(3){animation-delay:.4s}
 .pw.on{opacity:1}
 
+
+/* ---------- plano ---------- */
+.plano{display:grid;grid-template-columns:1fr 300px;gap:26px;margin-top:10px;align-items:start}
+.plano .sheet{border:3px solid var(--ink);background:#f6f3ec;padding:8px}
+#planta{display:block;width:100%;height:auto}
+#planta .pl-wall{fill:none;stroke:var(--ink);stroke-linecap:square;stroke-linejoin:miter}
+#planta .pl-cold{fill:rgba(63,180,221,.16);stroke:none}
+#planta .pl-rack{fill:#c3c8cb;stroke:var(--ink);stroke-width:.06}
+#planta .pl-rack-cold{fill:var(--ice-l);stroke:var(--ink);stroke-width:.06}
+#planta .pl-dock{fill:rgba(243,198,35,.28);stroke:var(--ink);stroke-width:.07;stroke-dasharray:.4 .25}
+#planta .pl-zone{fill:none;stroke:var(--ink);stroke-width:.07;stroke-dasharray:.4 .25}
+#planta .pl-table{fill:var(--paper2);stroke:var(--ink);stroke-width:.06}
+#planta .pl-cold-bin{fill:var(--ice-l);stroke:var(--ink);stroke-width:.06}
+#planta .pl-pjack{fill:var(--yellow);stroke:var(--ink);stroke-width:.06}
+#planta .pl-truck,#planta .pl-cab{fill:var(--paper);stroke:var(--ink);stroke-width:.08}
+#planta .pl-cab{fill:var(--yellow)}
+#planta .pl-door{stroke:var(--ink);stroke-width:.08;stroke-dasharray:.25 .18}
+#planta .pl-ln{stroke:var(--ink);stroke-width:.06}
+#planta .pl-axis{stroke:var(--steel);stroke-width:.06;stroke-dasharray:1 .5}
+#planta .pl-swing{fill:none;stroke:var(--ink);stroke-width:.05}
+#planta .pl-fast{fill:url(#ftH);stroke:var(--red);stroke-width:.08}
+#planta .pl-beam{stroke:var(--ice);stroke-width:.14;stroke-dasharray:.3 .2}
+#planta .pl-post{fill:var(--ink);stroke:var(--yellow);stroke-width:.1}
+#planta .pl-scan circle{fill:none;stroke:var(--ice);stroke-width:.1;opacity:0;transform-box:fill-box;transform-origin:center}
+.slide.active #planta .pl-scan circle{animation:scan 1.6s ease-out infinite}
+@keyframes scan{0%{opacity:.9;transform:scale(.3)}100%{opacity:0;transform:scale(1.6)}}
+#planta .pl-t{font-family:var(--mono);font-weight:700;fill:var(--ink);text-anchor:middle;dominant-baseline:middle;letter-spacing:.02em}
+#planta .pl-muted{fill:var(--steel);font-weight:500}
+#planta .pl-fast-txt{fill:var(--red)}
+#planta .pl-route{fill:none;stroke:var(--ice);stroke-width:.16;stroke-dasharray:.45 .3;stroke-linejoin:round}
+#planta .pl-route-urg{fill:none;stroke:var(--red);stroke-width:.16;stroke-dasharray:.45 .3;stroke-linejoin:round}
+.slide.active #planta .pl-route,.slide.active #planta .pl-route-urg{animation:road 1.2s linear infinite}
+#planta .pl-badge rect{fill:var(--ink)}
+#planta .pl-badge text{font-family:var(--mono);font-weight:700;font-size:.55px;fill:var(--yellow);text-anchor:middle;dominant-baseline:central}
+#planta .pl-dim line{stroke:var(--steel);stroke-width:.05}
+#planta .pl-dim text{font-family:var(--mono);font-size:.62px;fill:var(--steel);text-anchor:middle}
+#planta .pl-scale rect{fill:var(--ink)} #planta .pl-scale rect.w{fill:#fff;stroke:var(--ink);stroke-width:.05}
+#planta .pl-scale text{font-family:var(--mono);font-size:.5px;fill:var(--ink)}
+#planta .pl-pkg rect{fill:var(--ice-l);stroke:var(--ink);stroke-width:.1}
+#planta .pl-pkg.urg rect{fill:var(--red)}
+.legend{list-style:none;font-size:15.5px;line-height:1.25;display:grid;gap:5px}
+.legend li{display:grid;grid-template-columns:28px 1fr;align-items:center;gap:8px}
+.legend .n{background:var(--ink);color:var(--yellow);font-family:var(--mono);font-weight:700;font-size:13px;text-align:center;padding:2px 0}
+.legend .sw{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;margin-top:6px}
+.legend .sw i{display:inline-block;width:30px;height:0;border-top:4px dashed var(--ice)}
+.legend .sw i.r{border-color:var(--red)}
+.dxf{margin-top:14px;font-family:var(--mono);font-size:12.5px;line-height:1.5;border:2px solid var(--ink);padding:8px 10px;background:var(--yellow)}
+
 /* ---------- 08 cadena de frío ---------- */
 .cf{display:grid;grid-template-columns:560px 1fr;gap:40px;margin-top:26px;align-items:start}
 .cf .panel{border:3px solid var(--ink);background:var(--paper)}
@@ -216,6 +264,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
   <defs>
     <filter id="rough"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
     <pattern id="hz" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="22" height="22" fill="#f3c623"/><rect width="11" height="22" fill="#1c1d1f"/></pattern>
+    <pattern id="ftH" width=".8" height=".8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width=".8" height=".8" fill="rgba(214,58,47,.12)"/><rect width=".22" height=".8" fill="rgba(214,58,47,.55)"/></pattern>
     <g id="snow"><path d="M0-9V9M-8-4.5 8 4.5M-8 4.5 8-4.5" stroke="#1c1d1f" stroke-width="2.2" stroke-linecap="round"/></g>
     <g id="chip"><rect x="-7" y="-5" width="14" height="10" rx="1.5" fill="#1c1d1f"/><path d="M-4 0h8M0-3v6" stroke="#f3c623" stroke-width="1.6"/></g>
   </defs>
@@ -538,9 +587,156 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
   </div>
 </section>
 
+<!-- ============ 08 PLANO ============ -->
+<section class="slide" id="splano">
+  <header class="sh"><b>08</b>Plano de la planta · 40 × 25 m<span class="stripe"></span></header>
+  <h2 class="rv" style="font-size:70px;margin-bottom:6px">La planta <em>vista desde arriba</em></h2>
+  <div class="plano">
+    <div class="sheet rv" style="--d:.1">
+<!--PLANO:INICIO-->
+<svg id="planta" viewBox="-13.2 -2 56.6 30.2" xmlns="http://www.w3.org/2000/svg" aria-label="Plano de planta TRAZA-RFID, nave de 40 por 25 metros">
+<polyline class="pl-wall" style="stroke-width:0.3" points="0,8.5 0,25.0 40,25.0 40,24.0"/>
+<polyline class="pl-wall" style="stroke-width:0.3" points="0,5.5 0,4.0"/>
+<polyline class="pl-wall" style="stroke-width:0.3" points="0,1.0 0,0.0 36,0.0"/>
+<polyline class="pl-wall" style="stroke-width:0.3" points="37.2,0.0 40,0.0 40,12.0"/>
+<polyline class="pl-wall" style="stroke-width:0.3" points="40,21.8 40,20.0"/>
+<polyline class="pl-wall" style="stroke-width:0.3" points="40,16.5 40,15.5"/>
+<line class="pl-door" x1="0" y1="8.5" x2="0" y2="5.5"/>
+<line class="pl-door" x1="0" y1="4.0" x2="0" y2="1.0"/>
+<line class="pl-door" x1="40" y1="20.0" x2="40" y2="16.5"/>
+<line class="pl-door" x1="40" y1="15.5" x2="40" y2="12.0"/>
+<line class="pl-door" x1="40" y1="24.0" x2="40" y2="21.8"/>
+<path class="pl-swing" d="M37.2,0.0 L36.000,0.0 A1.2,1.2 0 0 0 37.200,1.2"/>
+<line class="pl-ln" x1="37.2" y1="0.0" x2="37.2" y2="1.2"/>
+<rect class="pl-cold" x="8" y="0.0" width="10" height="10"/>
+<polyline class="pl-wall" style="stroke-width:0.25" points="12,10.0 8,10.0 8,0.0"/>
+<polyline class="pl-wall" style="stroke-width:0.25" points="14.5,10.0 18,10.0 18,0.0"/>
+<line class="pl-door" x1="12" y1="10.0" x2="14.5" y2="10.0"/>
+<rect class="pl-rack-cold" x="8.6" y="0.25" width="2.8" height="1.05"/>
+<rect class="pl-rack-cold" x="8.6" y="3.6" width="2.8" height="2.4"/>
+<rect class="pl-rack-cold" x="11.6" y="0.25" width="2.8" height="1.05"/>
+<rect class="pl-rack-cold" x="11.6" y="3.6" width="2.8" height="2.4"/>
+<rect class="pl-rack-cold" x="14.6" y="0.25" width="2.8" height="1.05"/>
+<rect class="pl-rack-cold" x="14.6" y="3.6" width="2.8" height="2.4"/>
+<text class="pl-t " x="13" y="2.45" font-size="0.65">CÁMARA DE FRÍO 2–8 °C</text>
+<rect class="pl-rack" x="20.5" y="8.3" width="2.7" height="1.2"/>
+<rect class="pl-rack" x="23.3" y="8.3" width="2.7" height="1.2"/>
+<rect class="pl-rack" x="26.1" y="8.3" width="2.7" height="1.2"/>
+<rect class="pl-rack" x="28.9" y="8.3" width="2.7" height="1.2"/>
+<rect class="pl-rack" x="20.5" y="3.6" width="2.7" height="2.4"/>
+<rect class="pl-rack" x="23.3" y="3.6" width="2.7" height="2.4"/>
+<rect class="pl-rack" x="26.1" y="3.6" width="2.7" height="2.4"/>
+<rect class="pl-rack" x="28.9" y="3.6" width="2.7" height="2.4"/>
+<rect class="pl-rack" x="20.5" y="0.15" width="2.7" height="1.15"/>
+<rect class="pl-rack" x="23.3" y="0.15" width="2.7" height="1.15"/>
+<rect class="pl-rack" x="26.1" y="0.15" width="2.7" height="1.15"/>
+<rect class="pl-rack" x="28.9" y="0.15" width="2.7" height="1.15"/>
+<text class="pl-t " x="26" y="7.0" font-size="0.65">ALTA DENSIDAD</text>
+<text class="pl-t pl-muted" x="26" y="2.45" font-size="0.494">STOCK GENERAL</text>
+<rect class="pl-dock" x="0.4" y="0.4" width="4.6" height="9.1"/>
+<text class="pl-t " x="2.7" y="9.1" font-size="0.468">ANDÉN RECEPCIÓN</text>
+<line class="pl-beam" x1="5.7" y1="8.6" x2="5.7" y2="4.2"/>
+<rect class="pl-post" x="5.4" y="8.299999999999999" width=".6" height=".6"/>
+<rect class="pl-post" x="5.4" y="3.9000000000000004" width=".6" height=".6"/>
+<g class="pl-scan"><circle cx="5.7" cy="6.4" r="1.2"/><circle cx="5.7" cy="6.4" r="1.2" style="animation-delay:.8s"/></g>
+<line class="pl-axis" x1="0.4" y1="11.5" x2="33.3" y2="11.5"/>
+<text class="pl-t pl-muted" x="27.5" y="10.9" font-size="0.468">PASILLO PRINCIPAL</text>
+<polyline class="pl-wall" style="stroke-width:0.15" points="0,21.0 5.6,21.0"/>
+<polyline class="pl-wall" style="stroke-width:0.15" points="6.6,21.0 7,21.0 7,17.5"/>
+<polyline class="pl-wall" style="stroke-width:0.15" points="7,16.0 7,13.0 0,13.0"/>
+<path class="pl-swing" d="M7,16.0 L5.500,16.0 A1.5,1.5 0 0 0 7.000,17.5"/>
+<path class="pl-swing" d="M5.6,21.0 L5.600,22.0 A1.0,1.0 0 0 0 6.600,21.0"/>
+<text class="pl-t pl-muted" x="4.2" y="23.0" font-size="0.468">VESTUARIO / BAÑOS</text>
+<text class="pl-t " x="3.5" y="16.4" font-size="0.546">CONTROL Y</text>
+<text class="pl-t " x="3.5" y="17.1" font-size="0.546">CUARENTENA</text>
+<rect class="pl-table" x="1.0" y="18.8" width="2.2" height="1.4"/>
+<rect class="pl-table" x="1.0" y="13.6" width="5.2" height="1.2"/>
+<rect class="pl-zone" x="8.5" y="14.0" width="9.0" height="6.5"/>
+<rect class="pl-table" x="9.5" y="15.4" width="7.0" height="1.0"/>
+<rect class="pl-cold-bin" x="9.5" y="18.2" width="2.9" height="1.0"/>
+<rect class="pl-table" x="13.6" y="18.2" width="2.9" height="1.0"/>
+<text class="pl-t " x="10.95" y="18.95" font-size="0.442">FRÍO</text>
+<text class="pl-t " x="15.05" y="18.95" font-size="0.442">SECO</text>
+<text class="pl-t " x="14.6" y="14.8" font-size="0.546">CLASIFICACIÓN</text>
+<rect class="pl-zone" x="20.5" y="14.0" width="11.0" height="6.5"/>
+<rect class="pl-table" x="21.3" y="16.6" width="1.6" height="1.4"/>
+<rect class="pl-table" x="24.0" y="16.6" width="1.6" height="1.4"/>
+<rect class="pl-table" x="26.7" y="16.6" width="1.6" height="1.4"/>
+<rect class="pl-table" x="29.4" y="16.6" width="1.6" height="1.4"/>
+<text class="pl-t " x="26" y="19.7" font-size="0.546">PREPARACIÓN DE PEDIDOS</text>
+<polygon class="pl-fast" points="18,21.8 18,13.0 20,13.0 20,21.8 40,21.8 40,24.0 18,24.0"/>
+<text class="pl-t pl-fast-txt" x="30" y="23.4" font-size="0.624">CARRIL FAST-TRACK · URGENCIAS</text>
+<line class="pl-beam" x1="33.6" y1="18.8" x2="33.6" y2="14.8"/>
+<rect class="pl-post" x="33.300000000000004" y="18.5" width=".6" height=".6"/>
+<rect class="pl-post" x="33.300000000000004" y="14.5" width=".6" height=".6"/>
+<g class="pl-scan"><circle cx="33.6" cy="16.8" r="1.2"/><circle cx="33.6" cy="16.8" r="1.2" style="animation-delay:.8s"/></g>
+<rect class="pl-dock" x="34.6" y="11.0" width="5.0" height="10.0"/>
+<text class="pl-t " x="37.1" y="11.6" font-size="0.468">ANDÉN DESPACHO</text>
+<polyline class="pl-wall" style="stroke-width:0.15" points="33.5,0.0 33.5,6.0 35,6.0"/>
+<polyline class="pl-wall" style="stroke-width:0.15" points="36.4,6.0 40,6.0"/>
+<path class="pl-swing" d="M35,6.0 L36.400,6.0 A1.4,1.4 0 0 0 35.000,4.6"/>
+<rect class="pl-table" x="34.3" y="0.7" width="4.9" height="1.1"/>
+<text class="pl-t " x="37.0" y="2.8" font-size="0.52">SALA DE CONTROL</text>
+<text class="pl-t pl-muted" x="37.0" y="3.6" font-size="0.468">SUPERVISIÓN</text>
+<rect class="pl-zone" x="33.6" y="6.5" width="6.0" height="3.2"/>
+<rect class="pl-pjack" x="34.0" y="7.8" width="1.5" height="1.5"/>
+<rect class="pl-pjack" x="35.9" y="7.8" width="1.5" height="1.5"/>
+<rect class="pl-pjack" x="37.8" y="7.8" width="1.5" height="1.5"/>
+<text class="pl-t " x="37.2" y="7.25" font-size="0.468">CARGA ZORRAS</text>
+<rect class="pl-truck" x="-10.6" y="5.75" width="10.2" height="2.5"/>
+<rect class="pl-cab" x="-12.6" y="5.85" width="1.8" height="2.3"/>
+<text class="pl-t " x="-5.5" y="7.0" font-size="0.52">CAMIÓN REFRIGERADO</text>
+<polyline id="route" class="pl-route" points="-2.5,7.0 2.5,7.0 5.7,6.4 6.6,8.4 6.6,11.5 11,11.5 11,15.9 11,11.5 13.25,11.5 13.25,7.2 13.25,11.5 26,11.5 26,15.6 31.8,15.6 31.8,16.8 33.6,16.8 37,16.8 41,18.25"/>
+<polyline id="route-urg" class="pl-route-urg" points="13.25,7.2 13.25,11.5 19,11.5 19,22.4 41.5,22.4"/>
+<g class="pl-badge"><rect x="2.25" y="0.95" width=".9" height=".9"/><text x="2.7" y="1.4">1</text></g>
+<g class="pl-badge"><rect x="6.1499999999999995" y="2.9499999999999997" width=".9" height=".9"/><text x="6.6" y="3.4">2</text></g>
+<g class="pl-badge"><rect x="3.05" y="13.75" width=".9" height=".9"/><text x="3.5" y="14.2">3</text></g>
+<g class="pl-badge"><rect x="8.75" y="14.25" width=".9" height=".9"/><text x="9.2" y="14.7">4</text></g>
+<g class="pl-badge"><rect x="8.55" y="8.55" width=".9" height=".9"/><text x="9.0" y="9.0">5</text></g>
+<g class="pl-badge"><rect x="20.85" y="6.55" width=".9" height=".9"/><text x="21.3" y="7.0">6</text></g>
+<g class="pl-badge"><rect x="20.85" y="14.25" width=".9" height=".9"/><text x="21.3" y="14.7">7</text></g>
+<g class="pl-badge"><rect x="18.55" y="20.35" width=".9" height=".9"/><text x="19.0" y="20.8">8</text></g>
+<g class="pl-badge"><rect x="32.15" y="13.55" width=".9" height=".9"/><text x="32.6" y="14.0">9</text></g>
+<g class="pl-badge"><rect x="34.849999999999994" y="19.650000000000002" width=".9" height=".9"/><text x="35.3" y="20.1">10</text></g>
+<g class="pl-badge"><rect x="33.75" y="4.55" width=".9" height=".9"/><text x="34.2" y="5.0">11</text></g>
+<g class="pl-badge"><rect x="33.75" y="6.8" width=".9" height=".9"/><text x="34.2" y="7.25">12</text></g>
+<g class="pl-badge"><rect x="0.55" y="22.55" width=".9" height=".9"/><text x="1.0" y="23.0">13</text></g>
+<g class="pl-dim"><line x1="0" y1="26.6" x2="40" y2="26.6"/><line x1="0" y1="26.3" x2="0" y2="26.900000000000002"/><line x1="40" y1="26.3" x2="40" y2="26.900000000000002"/><text x="20.0" y="26.35">40.00</text></g>
+<g class="pl-dim"><line x1="41.6" y1="25.0" x2="41.6" y2="0.0"/><line x1="41.300000000000004" y1="25.0" x2="41.9" y2="25.0"/><line x1="41.300000000000004" y1="0.0" x2="41.9" y2="0.0"/><text transform="translate(41.95 12.5) rotate(-90)">25.00</text></g>
+<g class="pl-dim"><line x1="8" y1="-1.2" x2="18" y2="-1.2"/><line x1="8" y1="-1.5" x2="8" y2="-0.8999999999999999"/><line x1="18" y1="-1.5" x2="18" y2="-0.8999999999999999"/><text x="13.0" y="-1.45">10.00</text></g>
+<g class="pl-dim"><line x1="32.3" y1="13.0" x2="32.3" y2="10.0"/><line x1="31.999999999999996" y1="13.0" x2="32.599999999999994" y2="13.0"/><line x1="31.999999999999996" y1="10.0" x2="32.599999999999994" y2="10.0"/><text transform="translate(32.65 11.5) rotate(-90)">3.00</text></g>
+<g class="pl-dim"><line x1="32.6" y1="8.3" x2="32.6" y2="6.0"/><line x1="32.300000000000004" y1="8.3" x2="32.9" y2="8.3"/><line x1="32.300000000000004" y1="6.0" x2="32.9" y2="6.0"/><text transform="translate(32.95 7.15) rotate(-90)">2.30</text></g>
+<g class="pl-dim"><line x1="21.6" y1="24.0" x2="21.6" y2="21.8"/><line x1="21.3" y1="24.0" x2="21.900000000000002" y2="24.0"/><line x1="21.3" y1="21.8" x2="21.900000000000002" y2="21.8"/><text transform="translate(21.950000000000003 22.9) rotate(-90)">2.20</text></g>
+<g class="pl-scale"><rect x="-12.6" y="27.0" width="5" height=".35"/><rect x="-7.6" y="27.0" width="5" height=".35" class="w"/><text x="-12.6" y="26.7">0</text><text x="-7.6" y="26.7">5</text><text x="-2.6" y="26.7">10 m</text></g>
+<g class="pl-pkg"><rect x="-.45" y="-.35" width=".9" height=".7"/><animateMotion dur="18s" repeatCount="indefinite" path="M-2.5,7.0 L2.5,7.0 L5.7,6.4 L6.6,8.4 L6.6,11.5 L11,11.5 L11,15.9 L11,11.5 L13.25,11.5 L13.25,7.2 L13.25,11.5 L26,11.5 L26,15.6 L31.8,15.6 L31.8,16.8 L33.6,16.8 L37,16.8 L41,18.25"/></g>
+<g class="pl-pkg urg"><rect x="-.45" y="-.35" width=".9" height=".7"/><animateMotion dur="9s" begin="3s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.35;.85;1" calcMode="linear" path="M13.25,7.2 L13.25,11.5 L19,11.5 L19,22.4 L41.5,22.4"/></g>
+</svg>
+<!--PLANO:FIN-->
+    </div>
+    <ol class="legend rv" style="--d:.25">
+      <li><span class="n">01</span>Andén de recepción</li>
+      <li><span class="n">02</span>Portal RFID de entrada</li>
+      <li><span class="n">03</span>Control y cuarentena</li>
+      <li><span class="n">04</span>Clasificación frío / seco</li>
+      <li><span class="n">05</span>Cámara de frío 2–8 °C</li>
+      <li><span class="n">06</span>Estanterías de alta densidad</li>
+      <li><span class="n">07</span>Preparación de pedidos</li>
+      <li><span class="n">08</span>Carril fast-track</li>
+      <li><span class="n">09</span>Portal RFID de salida</li>
+      <li><span class="n">10</span>Andén de despacho</li>
+      <li><span class="n">11</span>Sala de control y supervisión</li>
+      <li><span class="n">12</span>Carga de zorras eléctricas</li>
+      <li><span class="n">13</span>Vestuario / baños</li>
+      <li class="sw" style="display:flex"><i></i>RECORRIDO DE UN BULTO</li>
+      <li class="sw" style="display:flex"><i class="r"></i>PEDIDO URGENTE</li>
+      <li class="dxf" style="display:block">Archivo para AutoCAD: plano/traza-rfid-planta.dxf · esc. 1:200</li>
+    </ol>
+  </div>
+</section>
+
 <!-- ============ 08 CADENA DE FRIO ============ -->
 <section class="slide" id="s8">
-  <header class="sh"><b>08</b>Mejora · cadena de frío<span class="stripe"></span></header>
+  <header class="sh"><b>09</b>Mejora · cadena de frío<span class="stripe"></span></header>
   <h2 class="rv" style="font-size:80px">El chip también <em>mide el frío</em></h2>
   <p class="lead rv" style="--d:.1">Sumamos tags RFID con sensor de temperatura: cierran el problema de la Clase 2 y usan los sensores que propusimos como herramienta.</p>
   <div class="cf">
@@ -595,7 +791,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 
 <!-- ============ 09 RIESGOS ============ -->
 <section class="slide" id="s9">
-  <header class="sh"><b>09</b>Riesgos y cómo los manejamos<span class="stripe"></span></header>
+  <header class="sh"><b>10</b>Riesgos y cómo los manejamos<span class="stripe"></span></header>
   <h2 class="rv">Ninguna solución es <em>perfecta</em></h2>
   <div class="risks">
     <div class="risk rv" style="--d:.15"><div class="i"><span>01</span></div><div class="p"><b>RIESGO</b>Los líquidos y metales interfieren con la lectura RFID (y las vacunas son líquidas).</div><div class="ar">→</div><div class="m"><b>MITIGACIÓN</b>El tag va en la caja o bulto, no en cada frasco. El código GS1 DataMatrix que ya exige ANMAT queda como respaldo.</div></div>
@@ -607,7 +803,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 
 <!-- ============ 10 CIERRE ============ -->
 <section class="slide" id="s10">
-  <header class="sh"><b>10</b>Conclusión<span class="stripe"></span></header>
+  <header class="sh"><b>11</b>Conclusión<span class="stripe"></span></header>
   <div class="big rv">Tecnología que <span class="ice">lee</span>,<br><span>personas que deciden.</span></div>
   <p class="lead rv" style="--d:.2;margin-top:24px">Menos errores y desperdicio, cumplimiento de la trazabilidad legal y operarios que dejan el trabajo pesado para gestionar lo importante.</p>
   <div class="q rv" style="--d:.5">¿PREGUNTAS?</div>
@@ -621,7 +817,7 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
   </div>
 </section>
 
-<footer class="foot"><span class="count" id="count">01 / 10</span><span class="bar"><i id="bar"></i></span><span class="hint">← → navegar · F pantalla completa</span></footer>
+<footer class="foot"><span class="count" id="count">01 / 11</span><span class="bar"><i id="bar"></i></span><span class="hint">← → navegar · F pantalla completa</span></footer>
 </div>
 
 <script>

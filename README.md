@@ -13,3 +13,7 @@ Página de presentación del Trabajo Práctico Integrador de **Introducción a l
 
 ## Equipo
 Matias Cruz · Lara Pintos · Lautaro Garnica · Mia Politi · Morena Miranda · Juan Ignacio Sánchez
+
+## Plano de la planta
+- `plano/traza-rfid-planta.dxf`: plano de 40 × 25 m para abrir y editar en AutoCAD (capas separadas: muros, cámara de frío, estanterías, portales RFID, fast-track, recorridos, cotas, rótulo).
+- `plano/generar_plano.py`: genera el DXF y actualiza el plano de la web (`pip install ezdxf`, después `python plano/generar_plano.py`).
