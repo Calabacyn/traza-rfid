@@ -24,6 +24,10 @@ LAYERS = {
     "MOBILIARIO": (8, "Continuous"),
     "DEMARCACION": (2, "DASHED"),
     "PORTALES_RFID": (2, "Continuous"),
+    "ANTENAS_RFID": (30, "Continuous"),
+    "TAGS_POSICION": (6, "Continuous"),
+    "LECTOR_ZORRA": (30, "Continuous"),
+    "REFERENCIAS": (7, "Continuous"),
     "FAST_TRACK": (1, "Continuous"),
     "RECORRIDO": (4, "DASHED"),
     "RECORRIDO_URGENTE": (1, "DASHED"),
@@ -68,6 +72,27 @@ def badge(x, y, n):
     P.append(("badge", x, y, n))
 
 
+def antenna(x, y):
+    """Antena RFID fija de techo (lectura continua)."""
+    P.append(("antenna", x, y))
+
+
+def tag(x, y):
+    """Tag de posición fijo en una estantería (ubicación exacta)."""
+    P.append(("tag", x, y))
+
+
+def reader(x, y):
+    """Lector RFID montado en una zorra eléctrica."""
+    P.append(("reader", x, y))
+
+
+def rack(x0, y0, x1, y1, cls):
+    """Módulo de estantería con su tag de posición en el frente."""
+    rect(x0, y0, x1, y1, "ESTANTERIAS", cls)
+    tag((x0 + x1) / 2, y0 + 0.3)
+
+
 # ---------------- muros exteriores (con aberturas) ----------------
 # izquierda x=0: portones recepcion y 16.5-19.5 / 21-24
 wall([(0, 16.5), (0, 0), (40, 0), (40, 1)])
@@ -90,14 +115,18 @@ wall([(12, 15), (8, 15), (8, 25)], 0.25, "CAMARA_FRIO")
 wall([(14.5, 15), (18, 15), (18, 25)], 0.25, "CAMARA_FRIO")
 line((12, 15), (14.5, 15), "PUERTAS", "door")
 for x0 in (8.6, 11.6, 14.6):
-    rect(x0, 23.7, x0 + 2.8, 24.75, "ESTANTERIAS", "rack-cold")
-    rect(x0, 19.0, x0 + 2.8, 21.4, "ESTANTERIAS", "rack-cold")
-text(13, 22.55, "CÁMARA DE FRÍO 2–8 °C", 0.5)
+    rack(x0, 23.7, x0 + 2.8, 24.75, "rack-cold")
+    rack(x0, 19.0, x0 + 2.8, 21.4, "rack-cold")
+text(13, 22.55, "CÁMARA DE FRÍO 2–8 °C", 0.4)
+# portal en la puerta de la cámara y antenas fijas de techo (lectura continua + temperatura)
+P.append(("portal", 12, 15, 14.5, 15, "PORTAL C"))
+for (x, y) in [(10.4, 17.4), (16.1, 17.4), (8.75, 22.55), (17.25, 22.55)]:
+    antenna(x, y)
 
 # ---------------- estanterias alta densidad 20.5-31.5 x 15.3-24.85 ----------------
 for (y0, y1) in [(15.5, 16.7), (19.0, 21.4), (23.7, 24.85)]:
     for x0 in (20.5, 23.3, 26.1, 28.9):
-        rect(x0, y0, x0 + 2.7, y1, "ESTANTERIAS", "rack")
+        rack(x0, y0, x0 + 2.7, y1, "rack")
 text(26, 18.0, "ALTA DENSIDAD", 0.5)
 text(26, 22.55, "STOCK GENERAL", 0.38, cls="muted")
 
@@ -159,6 +188,7 @@ text(37.0, 21.4, "SUPERVISIÓN", 0.36, cls="muted")
 rect(33.6, 15.3, 39.6, 18.5, "DEMARCACION", "zone")
 for x0 in (34.0, 35.9, 37.8):
     rect(x0, 15.7, x0 + 1.5, 17.2, "MOBILIARIO", "pjack")
+    reader(x0 + 0.75, 16.45)
 text(37.2, 17.75, "CARGA ZORRAS", 0.36)
 
 # ---------------- camiones ----------------
@@ -181,6 +211,14 @@ for (x, y, n) in [(2.7, 23.6, 1), (6.6, 21.6, 2), (3.5, 10.8, 3), (9.2, 10.3, 4)
                   (34.2, 20.0, 11), (34.2, 17.75, 12), (1.0, 2.0, 13)]:
     badge(x, y, n)
 
+# ---------------- referencias RFID (espacio libre a la izquierda de la nave) ----------------
+LEG_X, LEG_Y = -12.4, 12.6
+LEGEND = [("portal", "Portal RFID"),
+          ("antenna", "Antena fija de techo"),
+          ("tag", "Tag de posición"),
+          ("reader", "Lector en zorra")]
+P.append(("legend", LEG_X, LEG_Y, LEGEND))
+
 # ---------------- cotas ----------------
 dim((0, 0), (40, 0), (0, -1.6))
 dim((40, 0), (40, 25), (41.6, 0), 90)
@@ -199,9 +237,29 @@ def write_dxf(path):
         doc.layers.add(name, color=color, linetype=lt)
     msp = doc.modelspace()
 
-    def txt(s, x, y, h, layer, rot=0):
+    def txt(s, x, y, h, layer, rot=0, align=TextEntityAlignment.MIDDLE_CENTER):
         t = msp.add_text(s, height=h, rotation=rot, dxfattribs={"layer": layer, "style": "OpenSans"})
-        t.set_placement((x, y), align=TextEntityAlignment.MIDDLE_CENTER)
+        t.set_placement((x, y), align=align)
+
+    def solid(ps, layer, color):
+        hh = msp.add_hatch(color=color, dxfattribs={"layer": layer})
+        hh.paths.add_polyline_path(ps, is_closed=True)
+        msp.add_lwpolyline(ps, close=True, dxfattribs={"layer": layer})
+
+    def sym_portal(x, y, layer="PORTALES_RFID"):
+        sq = [(x - .25, y - .25), (x + .25, y - .25), (x + .25, y + .25), (x - .25, y + .25)]
+        solid(sq, layer, 2)
+
+    def sym_antenna(x, y, layer="ANTENAS_RFID"):
+        msp.add_circle((x, y), 0.38, dxfattribs={"layer": layer})
+        hh = msp.add_hatch(color=30, dxfattribs={"layer": layer})
+        hh.paths.add_edge_path().add_arc((x, y), 0.14, 0, 360)
+
+    def sym_tag(x, y, layer="TAGS_POSICION"):
+        solid([(x - .17, y - .17), (x + .17, y - .17), (x + .17, y + .17), (x - .17, y + .17)], layer, 6)
+
+    def sym_reader(x, y, layer="LECTOR_ZORRA"):
+        solid([(x - .3, y - .22), (x + .3, y - .22), (x, y + .3)], layer, 30)
 
     for p in P:
         k = p[0]
@@ -226,12 +284,29 @@ def write_dxf(path):
         elif k == "portal":
             _, x0, y0, x1, y1, lbl = p
             for (x, y) in ((x0, y0), (x1, y1)):
-                msp.add_lwpolyline([(x - .25, y - .25), (x + .25, y - .25), (x + .25, y + .25), (x - .25, y + .25)],
-                                   close=True, dxfattribs={"layer": "PORTALES_RFID"})
-                hh = msp.add_hatch(color=2, dxfattribs={"layer": "PORTALES_RFID"})
-                hh.paths.add_polyline_path([(x - .25, y - .25), (x + .25, y - .25), (x + .25, y + .25), (x - .25, y + .25)], is_closed=True)
+                sym_portal(x, y)
             msp.add_line((x0, y0), (x1, y1), dxfattribs={"layer": "PORTALES_RFID", "linetype": "DASHED"})
-            txt(lbl, x0 - 0.9 if x0 > 30 else x0 + 1.0, (y0 + y1) / 2, 0.34, "PORTALES_RFID", 90)
+            if y0 == y1:  # portal horizontal (puerta de la cámara)
+                txt(lbl, (x0 + x1) / 2, y0 - 0.75, 0.34, "PORTALES_RFID")
+            else:
+                txt(lbl, x0 - 0.9 if x0 > 30 else x0 + 1.0, (y0 + y1) / 2, 0.34, "PORTALES_RFID", 90)
+        elif k == "antenna":
+            sym_antenna(p[1], p[2])
+        elif k == "tag":
+            sym_tag(p[1], p[2])
+        elif k == "reader":
+            sym_reader(p[1], p[2])
+        elif k == "legend":
+            _, lx, ly, items = p
+            txt("REFERENCIAS RFID", lx, ly, 0.42, "REFERENCIAS", align=TextEntityAlignment.MIDDLE_LEFT)
+            draw = {"portal": lambda x, y: sym_portal(x, y, "REFERENCIAS"),
+                    "antenna": lambda x, y: sym_antenna(x, y, "REFERENCIAS"),
+                    "tag": lambda x, y: sym_tag(x, y, "REFERENCIAS"),
+                    "reader": lambda x, y: sym_reader(x, y, "REFERENCIAS")}
+            for i, (kind, label) in enumerate(items):
+                y = ly - 1.1 * (i + 1)
+                draw[kind](lx + 0.4, y)
+                txt(label, lx + 1.1, y, 0.34, "REFERENCIAS", align=TextEntityAlignment.MIDDLE_LEFT)
         elif k == "route":
             msp.add_lwpolyline(p[1], dxfattribs={"layer": p[2]})
         elif k == "badge":
@@ -259,6 +334,17 @@ def write_dxf(path):
 
 
 # =====================================================================
+def svg_sym(kind, x, y):
+    """Símbolo RFID en coordenadas SVG (y ya invertida)."""
+    if kind == "portal":
+        return f'<rect class="pl-post" x="{x - .3}" y="{y - .3}" width=".6" height=".6"/>'
+    if kind == "antenna":
+        return f'<g class="pl-ant"><circle cx="{x}" cy="{y}" r=".38"/><circle class="c" cx="{x}" cy="{y}" r=".14"/></g>'
+    if kind == "tag":
+        return f'<rect class="pl-tagp" x="{x - .17:.2f}" y="{y - .17:.2f}" width=".34" height=".34"/>'
+    return f'<polygon class="pl-reader" points="{x - .3:.2f},{y + .22:.2f} {x + .3:.2f},{y + .22:.2f} {x:.2f},{y - .3:.2f}"/>'
+
+
 def write_svg():
     def Y(y):
         return round(H - y, 3)
@@ -292,7 +378,17 @@ def write_svg():
             o.append(f'<line class="pl-beam" x1="{x0}" y1="{Y(y0)}" x2="{x1}" y2="{Y(y1)}"/>')
             for (x, y) in ((x0, y0), (x1, y1)):
                 o.append(f'<rect class="pl-post" x="{x - .3}" y="{Y(y) - .3}" width=".6" height=".6"/>')
-            o.append(f'<g class="pl-scan"><circle cx="{x0}" cy="{Y((y0 + y1) / 2)}" r="1.2"/><circle cx="{x0}" cy="{Y((y0 + y1) / 2)}" r="1.2" style="animation-delay:.8s"/></g>')
+            cx, cy = (x0 + x1) / 2, Y((y0 + y1) / 2)
+            o.append(f'<g class="pl-scan"><circle cx="{cx}" cy="{cy}" r="1.2"/><circle cx="{cx}" cy="{cy}" r="1.2" style="animation-delay:.8s"/></g>')
+        elif k in ("antenna", "tag", "reader"):
+            o.append(svg_sym(k, p[1], Y(p[2])))
+        elif k == "legend":
+            _, lx, ly, items = p
+            o.append(f'<g class="pl-legend"><text class="pl-lt pl-ltitle" x="{lx}" y="{Y(ly)}">REFERENCIAS RFID</text>')
+            for i, (kind, label) in enumerate(items):
+                yy = Y(ly - 1.1 * (i + 1))
+                o.append(svg_sym(kind, lx + 0.4, yy) + f'<text class="pl-lt" x="{lx + 1.1}" y="{yy}">{label}</text>')
+            o.append('</g>')
         elif k == "route":
             o.append(f'<polyline id="{p[3]}" class="pl-{p[3]}" points="{pts(p[1])}"/>')
         elif k == "badge":

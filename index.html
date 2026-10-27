@@ -82,6 +82,81 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 .slide.active .waves path:nth-child(3){animation-delay:.5s}
 @keyframes wv{0%{opacity:0}30%{opacity:1}100%{opacity:0}}
 
+/* ---------- ¿por qué la alternativa 3? ---------- */
+#s6 .dec{display:grid;grid-template-columns:1.5fr 1fr;gap:38px;margin-top:30px;align-items:start}
+#s6 .mx{margin-top:0;font-size:19px}
+#s6 .mx th:nth-child(1){width:270px}
+#s6 .mx td{padding:15px 14px}
+#s6 .cell{flex-direction:column;align-items:stretch;gap:8px}
+#s6 .cell .v{width:auto;font-size:18px;font-weight:600}
+#s6 .cell .tr{flex:none;height:14px}
+#s6 .mx td.best{background:#dff1e3}
+#s6 .mx td.a3c.best{background:#f6e7a6}
+#s6 .ok{color:#2f9e5b;font-weight:800;margin-left:6px}
+#s6 .ko{color:var(--red);font-weight:800;margin-left:6px}
+#s6 .mx tr.legal td{border-top:4px solid var(--red);border-bottom:4px solid var(--red)}
+#s6 .mx tr.legal td.c{border-left:8px solid var(--red)}
+#s6 .mx td.fail{background:#f8e1df}
+#s6 .mx td.fail .tr i{background:var(--red)}
+#s6 .lg{display:block;width:max-content;margin-top:5px;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;background:var(--red);color:#fff;padding:2px 7px}
+#s6 .note{margin-top:12px;font-size:14px}
+.verdict{position:relative;border:3px solid var(--ink);background:var(--yellow);box-shadow:8px 8px 0 var(--ink)}
+.verdict .vh{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.1em;padding:18px 20px;background:var(--ink);color:var(--yellow)}
+.verdict ol{list-style:none;counter-reset:w;padding:24px 22px 8px}
+.verdict li{counter-increment:w;display:grid;grid-template-columns:48px 1fr;gap:14px;font-size:21px;line-height:1.32;margin-bottom:22px}
+.verdict li::before{content:counter(w);font-family:var(--stencil);font-weight:900;font-size:56px;line-height:.85}
+.verdict .cede{margin:0 22px 24px;background:var(--paper);border:2px dashed var(--ink);padding:14px 14px;font-size:17px;line-height:1.4}
+#s6 .stamp{top:-30px;right:12px}
+/* ---------- herramientas de ingeniería ---------- */
+.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:32px 30px;margin-top:44px}
+.tl .t{border:3px solid var(--ink);background:var(--paper);display:grid;grid-template-columns:100px 1fr;gap:20px;padding:26px 22px;align-items:start;box-shadow:6px 6px 0 var(--ink)}
+.tl svg{width:100px;height:100px;display:block}
+.tl h3{font-family:var(--stencil);font-size:36px;text-transform:uppercase;line-height:.95;margin-bottom:6px}
+.tl .what{font-family:var(--mono);font-size:13px;letter-spacing:.06em;color:var(--steel);text-transform:uppercase;margin-bottom:6px}
+.tl p{font-size:20px;line-height:1.3}
+/* ---------- valor agregado de las alternativas ---------- */
+#s5 .alt svg{height:150px}
+#s5 .alt p{font-size:17px;line-height:1.35}
+#s5 .alt h3{font-size:34px;margin:4px 0 8px}
+#s5 .meter{margin-top:10px}
+.vals{list-style:none;margin-top:12px;border-top:2px dashed var(--ink);padding-top:10px;display:grid;gap:5px}
+.vals li{display:grid;grid-template-columns:118px 1fr;align-items:center;gap:8px;font-size:15.5px;line-height:1.2}
+.vk{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 6px;border:2px solid var(--ink);text-align:center}
+.vk.t{background:var(--ice-l)} .vk.s{background:var(--yellow)} .vk.e{background:#cfe8d4} .vk.a{background:#2f9e5b;color:#fff;border-color:#2f9e5b}
+
+/* ---------- 03 representación: árbol de problemas ---------- */
+#srep h2{font-size:70px;margin-bottom:6px}
+#srep .lead{font-size:21px}
+.ap{margin-top:16px;display:flex;flex-direction:column;gap:0}
+.ap .row{display:grid;grid-template-columns:120px repeat(4,1fr);gap:16px;align-items:stretch}
+.ap .lab{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;display:flex;align-items:center;line-height:1.3;color:var(--steel)}
+.ap .lab b{display:block;color:var(--ink);font-size:15px}
+.ap .c{position:relative;border:3px solid var(--ink);background:var(--paper);padding:18px 16px 14px;font-size:21px;line-height:1.24}
+.ap .c::before{content:"";position:absolute;top:-10px;left:-10px;width:58px;height:18px;background:var(--steel-l);border:2px solid var(--ink);transform:rotate(-7deg)}
+.ap .c.cold::before{background:var(--ice)}
+.ap .c.urg::before{background:var(--red)}
+.ap .efx .c{background:#fff;box-shadow:6px 6px 0 var(--ink)}
+.ap .efx .c::before{background:var(--yellow)}
+.ap .efx .c.cold::before{background:var(--ice)} .ap .efx .c.urg::before{background:var(--red)}
+.ap .c b{color:var(--red)}
+.ap .c .who{display:block;margin-top:8px;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel)}
+.ap .arw{display:grid;grid-template-columns:120px repeat(4,1fr);gap:16px;height:42px}
+.ap .arw i{justify-self:center;position:relative;width:4px;height:100%;
+  background:repeating-linear-gradient(0deg,var(--ink) 0 7px,transparent 7px 12px) 0 0/4px 24px}
+.slide.active .ap .arw i{animation:apup .7s linear infinite}
+@keyframes apup{to{background-position:0 -24px}}
+.ap .arw i::after{content:"";position:absolute;top:-4px;left:-7px;border:9px solid transparent;border-bottom:11px solid var(--ink);border-top:0}
+.ap .trunk{display:grid;grid-template-columns:120px 1fr;gap:16px}
+.ap .tk{display:flex;align-items:center;gap:26px;background:var(--ink);color:var(--paper);padding:20px 24px;border-left:16px solid transparent;border-image:var(--hazard) 1;border-image-width:0 0 0 16px}
+.ap .tk .pc{font-family:var(--stencil);font-weight:900;text-transform:uppercase;font-size:38px;line-height:.95;color:var(--yellow)}
+.ap .tk .pc small{display:block;font-family:var(--sans);text-transform:none;font-weight:500;font-size:19px;line-height:1.25;color:var(--paper);margin-top:6px}
+.ap .tk .dato{margin-left:auto;flex:0 0 330px;border:2px dashed var(--ice);padding:10px 14px;font-size:15px;line-height:1.3}
+.ap .tk .dato b{display:block;font-family:var(--stencil);font-size:42px;line-height:1;color:var(--ice)}
+.ap .tk .dato small{display:block;margin-top:4px;font-family:var(--mono);font-size:11px;color:var(--steel-l);letter-spacing:.06em}
+.ap .fin{display:grid;grid-template-columns:120px 1fr;gap:16px}
+.ap .fin div{display:flex;align-items:center;gap:16px;border:3px solid var(--ink);background:var(--paper);font-size:22px;padding:0 18px 0 0}
+.ap .fin .tag{border:0;border-right:3px solid var(--ink);align-self:stretch;display:flex;align-items:center;padding:10px 16px}
+
 /* ---------- 02 problema ---------- */
 .two{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:26px}
 .scene{border:3px solid var(--ink);background:rgba(255,255,255,.35);position:relative}
@@ -209,7 +284,7 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 .mx thead th{background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
 .mx thead th.a3{background:var(--yellow);color:var(--ink)}
 .mx td.c{font-weight:700}
-.mx th:nth-child(1){width:330px}.mx th:nth-child(2){width:90px}
+.mx th:nth-child(1){width:380px}
 .mx td.w{font-family:var(--mono);font-weight:700;text-align:center;background:var(--paper2)}
 .cell{display:flex;align-items:center;gap:12px}
 .cell .v{width:100px;flex:none;font-size:16px}
@@ -268,6 +343,12 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 #planta .pl-fast{fill:url(#ftH);stroke:var(--red);stroke-width:.08}
 #planta .pl-beam{stroke:var(--ice);stroke-width:.14;stroke-dasharray:.3 .2}
 #planta .pl-post{fill:var(--ink);stroke:var(--yellow);stroke-width:.1}
+#planta .pl-ant circle{fill:#fff;stroke:#e07b00;stroke-width:.1}
+#planta .pl-ant circle.c{fill:#e07b00;stroke:none}
+#planta .pl-tagp{fill:#b0329a;stroke:none}
+#planta .pl-reader{fill:#e07b00;stroke:var(--ink);stroke-width:.05}
+#planta .pl-lt{font-family:var(--mono);font-size:.5px;fill:var(--ink);dominant-baseline:middle}
+#planta .pl-ltitle{font-weight:700;font-size:.55px}
 #planta .pl-scan circle{fill:none;stroke:var(--ice);stroke-width:.1;opacity:0;transform-box:fill-box;transform-origin:center}
 .slide.active #planta .pl-scan circle{animation:scan 1.6s ease-out infinite}
 @keyframes scan{0%{opacity:.9;transform:scale(.3)}100%{opacity:0;transform:scale(1.6)}}
@@ -346,6 +427,39 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
   .lead{font-size:17px}
   .tag{font-size:11px;padding:3px 7px}
 
+  /* por qué la alternativa 3 */
+  #s6 .dec{grid-template-columns:1fr;gap:22px}
+  #s6 .mx th:nth-child(1){width:34%}
+  #s6 .cell .v{font-size:12px}
+  .verdict li{font-size:15px;grid-template-columns:30px 1fr}
+  .verdict li::before{font-size:34px}
+  .verdict .cede{font-size:13px}
+  /* herramientas + valor agregado */
+  .tl{grid-template-columns:1fr;gap:14px;margin-top:16px}
+  .tl .t{grid-template-columns:56px 1fr;gap:12px;padding:12px;box-shadow:4px 4px 0 var(--ink)}
+  .tl svg{width:56px;height:56px}
+  .tl h3{font-size:22px}.tl .what{font-size:10px}.tl p{font-size:14px}
+  #s5 .alt svg{height:130px}
+  .vals li{grid-template-columns:96px 1fr;font-size:13px}
+  .vk{font-size:9px}
+  /* 03 representación */
+  #srep h2{font-size:40px!important}
+  .ap .row,.ap .arw{grid-template-columns:1fr 1fr;gap:12px 10px}
+  .ap .row .lab{grid-column:1/-1}
+  .ap .arw{height:26px}
+  .ap .arw span,.ap .arw i:nth-of-type(n+2){display:none}
+  .ap .arw i{grid-column:1/-1}
+  .ap .trunk,.ap .fin{grid-template-columns:1fr}
+  .ap .trunk .lab,.ap .fin .lab{display:none}
+  .ap .c{font-size:14px;padding:12px 8px 8px}
+  .ap .c::before{width:40px;height:12px;top:-7px;left:-5px}
+  .ap .c .who{font-size:9px;letter-spacing:.04em}
+  .ap .efx .c{box-shadow:4px 4px 0 var(--ink)}
+  .ap .tk{flex-direction:column;align-items:stretch;gap:12px;padding:12px 14px}
+  .ap .tk .pc{font-size:26px}.ap .tk .pc small{font-size:14px}
+  .ap .tk .dato{flex:none;margin-left:0;font-size:13px}.ap .tk .dato b{font-size:30px}
+  .ap .fin div{font-size:14px;gap:10px;padding-right:10px}
+  .ap .fin .tag{padding:8px 10px}
   /* 01 */
   #s1 .hazard-top{top:44px;height:14px}
   #s1 h1{font-size:min(74px,19vw);margin-top:22px}
@@ -502,7 +616,7 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       <rect width="168" height="96" fill="#1c1d1f"/>
       <text x="12" y="26" font-family="JetBrains Mono" font-size="14" fill="#f3c623">LOTE A-2231</text>
       <text x="12" y="50" font-family="JetBrains Mono" font-size="14" fill="#ebe7de">VTO 03/2027</text>
-      <text x="12" y="74" font-family="JetBrains Mono" font-size="14" fill="#3fb4dd">TEMP 4.2°C ✓</text>
+      <text x="12" y="74" font-family="JetBrains Mono" font-size="14" fill="#3fb4dd">A CÁMARA ✓</text>
     </g>
     <path d="M470 116 L440 150" class="ink"/>
     <!-- operator -->
@@ -551,33 +665,78 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       <div class="flow"><span>Dificulta el <b>control estricto</b> de productos sensibles</span><i>→</i><span>Se <b>mezclan</b> con insumos regulares</span></div>
     </div>
     <div class="scene rv" style="--d:.4">
-      <span class="tag k lbl">Falla 2 · En el camión</span>
+      <span class="tag k lbl">Falla 2 · Fuera del frío</span>
       <svg viewBox="0 0 680 300">
-        <line x1="0" y1="262" x2="680" y2="262" class="ink"/>
-        <line x1="0" y1="284" x2="680" y2="284" stroke="#1c1d1f" stroke-width="4" stroke-dasharray="34 26" class="road"/>
-        <!-- truck -->
-        <g transform="translate(50 43) scale(0.4)"><g class="rumble"><image href="img/camion-cuerpo.png" width="900" height="557"/><use href="#snow" transform="translate(297 190) scale(6)"/><text x="297" y="330" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="40" fill="#1c1d1f">REFRIGERADO</text></g><g><image href="img/camion-rueda1.png" width="900" height="557"/><circle cx="720.3" cy="477.6" r="5" fill="#4a4d50"/><circle cx="704.3" cy="493.6" r="5" fill="#4a4d50"/><circle cx="688.3" cy="477.6" r="5" fill="#4a4d50"/><circle cx="704.3" cy="461.6" r="5" fill="#4a4d50"/><animateTransform attributeName="transform" type="rotate" from="0 704.3 477.6" to="360 704.3 477.6" dur="0.9s" repeatCount="indefinite"/></g><g><image href="img/camion-rueda2.png" width="900" height="557"/><circle cx="195.9" cy="477.6" r="5" fill="#4a4d50"/><circle cx="179.9" cy="493.6" r="5" fill="#4a4d50"/><circle cx="163.9" cy="477.6" r="5" fill="#4a4d50"/><circle cx="179.9" cy="461.6" r="5" fill="#4a4d50"/><animateTransform attributeName="transform" type="rotate" from="0 179.9 477.6" to="360 179.9 477.6" dur="0.9s" repeatCount="indefinite"/></g></g>
-        <!-- thermometer -->
-        <g transform="translate(470 40)">
+        <line x1="0" y1="270" x2="680" y2="270" class="ink"/>
+        <!-- mesa de clasificación con insumos de frío esperando -->
+        <rect x="40" y="200" width="300" height="14" fill="#c79a5e" class="ink"/>
+        <line x1="60" y1="214" x2="60" y2="270" class="ink"/><line x1="320" y1="214" x2="320" y2="270" class="ink"/>
+        <image href="img/caja-vacunas.png" x="62" y="142" width="62" height="58.3"/>
+        <image href="img/caja-vacunas.png" x="140" y="142" width="62" height="58.3"/>
+        <image href="img/conservadora.png" x="222" y="148" width="56" height="52.3"/>
+        <text x="190" y="128" text-anchor="middle" font-family="JetBrains Mono" font-size="14" font-weight="700">MESA DE CLASIFICACIÓN</text>
+        <!-- reloj: el tiempo pasa -->
+        <g transform="translate(395 92)">
+          <circle r="36" fill="#ebe7de" class="ink"/>
+          <line x1="0" y1="0" x2="0" y2="-22" class="ink"/>
+          <line x1="0" y1="0" x2="0" y2="-30" stroke="#d63a2f" stroke-width="3" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="4s" repeatCount="indefinite"/></line>
+          <circle r="4" fill="#1c1d1f"/>
+        </g>
+        <!-- termómetro -->
+        <g transform="translate(455 40)">
           <rect x="0" y="0" width="30" height="170" rx="15" fill="#ebe7de" class="ink"/>
           <rect class="merc" x="8" y="18" width="14" height="150" rx="7" fill="#3fb4dd"/>
           <circle cx="15" cy="190" r="24" fill="#d63a2f" class="ink"/>
           <line x1="34" y1="60" x2="48" y2="60" class="ink"/><text x="54" y="66" font-family="JetBrains Mono" font-size="15" font-weight="700" fill="#d63a2f">8°C</text>
           <line x1="34" y1="140" x2="48" y2="140" class="ink"/><text x="54" y="146" font-family="JetBrains Mono" font-size="15" font-weight="700">2°C</text>
         </g>
-        <!-- dropping box + trash -->
+        <!-- insumo que se tira -->
         <g class="drop"><image href="img/conservadora.png" x="556" y="121.1" width="48" height="44.9"/></g>
         <g transform="translate(610 205)"><path d="M0 0h56l-6 56h-44z" fill="#a9b0b4" class="ink"/><line x1="-6" y1="0" x2="62" y2="0" class="ink"/><line x1="18" y1="12" x2="20" y2="46" class="ink"/><line x1="38" y1="12" x2="36" y2="46" class="ink"/></g>
-        <text x="20" y="40" font-family="JetBrains Mono" font-size="14" fill="#59636b">VIAJE LARGO · km 600…</text>
+        <text x="20" y="40" font-family="JetBrains Mono" font-size="14" fill="#59636b">ESPERANDO CLASIFICACIÓN · 40 min…</text>
       </svg>
-      <div class="flow"><span>Hay insumos que necesitan <b>cadena de frío</b></span><i>→</i><span>En viajes largos se pierde el frío y <b>se desechan</b></span></div>
+      <div class="flow"><span>Los insumos de frío <b>esperan fuera de la cámara</b> mientras se clasifican</span><i>→</i><span>Superan los 8 °C y <b>se desechan</b></span></div>
     </div>
   </div>
 </section>
 
-<!-- ============ 03 ACTORES ============ -->
+<!-- ============ 03 REPRESENTACIÓN ============ -->
+<section class="slide" id="srep">
+  <header class="sh"><b>03</b>Representación del problema<span class="stripe"></span></header>
+  <h2 class="rv">Árbol de <em>problemas</em></h2>
+  <p class="lead rv" style="--d:.1">Abajo, las causas (raíces). En el medio, el problema central (tronco). Arriba, lo que provoca (ramas).</p>
+  <div class="ap">
+    <div class="fin rv" style="--d:1.6"><span></span><div><span class="tag r">Efecto final</span><span>Pérdidas económicas, multas y <b>riesgo para la vida del paciente</b>.</span></div></div>
+    <div class="arw rv" style="--d:1.5"><span></span><i></i><i></i><i></i><i></i></div>
+    <div class="row efx">
+      <div class="lab rv" style="--d:1.2"><span><b>Efectos</b>lo que provoca</span></div>
+      <div class="c rv" style="--d:1.2">Errores de despacho: llega el <b>insumo equivocado</b> o vencido<span class="who">→ Hospitales · Operarios</span></div>
+      <div class="c rv" style="--d:1.3">No se puede seguir cada lote: <b>incumple la Res. 435/2011</b><span class="who">→ Entes reguladores</span></div>
+      <div class="c cold rv" style="--d:1.4">Se corta la cadena de frío y los insumos <b>se desechan</b><span class="who">→ Pacientes · Gerencia</span></div>
+      <div class="c urg rv" style="--d:1.5"><b>Retrasos</b> en guardias y cirugías<span class="who">→ Médicos · Pacientes</span></div>
+    </div>
+    <div class="arw rv" style="--d:1.1"><span></span><i></i><i></i><i></i><i></i></div>
+    <div class="trunk rv" style="--d:.8">
+      <div class="lab"><span><b>Problema central</b></span></div>
+      <div class="tk">
+        <div class="pc">Manejo manual de insumos sensibles<small>La planta clasifica, guarda y despacha a mano: no garantiza qué sale, en qué estado ni a tiempo.</small></div>
+        <div class="dato"><b>hasta 50%</b>de las vacunas se pierde en el mundo, en buena parte por fallas de frío y logística.<small>Estimación OMS · citada por PNUMA (2021)</small></div>
+      </div>
+    </div>
+    <div class="arw rv" style="--d:.6"><span></span><i></i><i></i><i></i><i></i></div>
+    <div class="row cau">
+      <div class="lab rv" style="--d:.2"><span><b>Causas</b>por qué pasa</span></div>
+      <div class="c rv" style="--d:.2">Se clasifica y registra <b>a mano</b>, sin identificar cada bulto</div>
+      <div class="c rv" style="--d:.3">Los productos sensibles se <b>mezclan</b> con los regulares</div>
+      <div class="c cold rv" style="--d:.4">Los insumos de frío <b>esperan fuera de la cámara</b> mientras se clasifican a mano</div>
+      <div class="c urg rv" style="--d:.5">Las urgencias esperan <b>en la misma fila</b> que el resto</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 ACTORES ============ -->
 <section class="slide" id="s3">
-  <header class="sh"><b>03</b>Actores y necesidades<span class="stripe"></span></header>
+  <header class="sh"><b>04</b>Actores y necesidades<span class="stripe"></span></header>
   <h2 class="rv">¿A quién le <em>afecta</em>?</h2>
   <p class="lead rv" style="--d:.1">Cinco actores, cinco necesidades. La solución tiene que responder a todos.</p>
   <div class="actors">
@@ -615,7 +774,7 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 
 <!-- ============ 04 RESTRICCIONES ============ -->
 <section class="slide" id="s4">
-  <header class="sh"><b>04</b>Variables y restricciones<span class="stripe"></span></header>
+  <header class="sh"><b>05</b>Variables y restricciones<span class="stripe"></span></header>
   <h2 class="rv">Lo que <em>limita</em> la solución</h2>
   <div class="cards3">
     <div class="rc rv" style="--d:.15">
@@ -634,15 +793,43 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       <div class="vs">NORMA → trazabilidad + Buenas Prácticas de Distribución</div>
     </div>
   </div>
-  <div class="tools rv" style="--d:.6">
-    <span class="tag k">Herramientas de ingeniería</span>
-    <span class="tag">°C · kg · cm/m</span><span class="tag">Normas BPD</span><span class="tag">Diagramas de flujo</span><span class="tag">Tablas de control</span><span class="tag y">Sensores de temperatura y humedad</span>
+</section>
+
+<!-- ============ 06 HERRAMIENTAS ============ -->
+<section class="slide" id="stools">
+  <header class="sh"><b>06</b>Uso de herramientas de ingeniería<span class="stripe"></span></header>
+  <h2 class="rv">Las <em>herramientas</em> que usamos</h2>
+  <div class="tl">
+    <div class="t rv" style="--d:0.12">
+      <svg viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" fill="#f3c623" class="ink"/><rect x="16" y="56" width="64" height="18" fill="#fff" class="ink"/><path d="M24 56v8M32 56v5M40 56v8M48 56v5M56 56v8M64 56v5M72 56v8" stroke="#1c1d1f" stroke-width="2.4"/><text x="48" y="44" text-anchor="middle" font-family="Big Shoulders Stencil Display" font-weight="900" font-size="30">°C</text></svg>
+      <div><h3>Unidades de medida</h3><div class="what">°C · kg · cm / m</div><p>Fijan límites medibles, como el rango de 2 a 8 °C.</p></div>
+    </div>
+    <div class="t rv" style="--d:0.22">
+      <svg viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" fill="#ebe7de" class="ink"/><rect x="24" y="14" width="48" height="64" fill="#fff" class="ink"/><path d="M32 30h32M32 40h32M32 50h20" class="ink" stroke-width="2.4"/><circle cx="62" cy="66" r="13" fill="none" stroke="#d63a2f" stroke-width="4"/><path d="M56 66l4 4 8-8" stroke="#d63a2f" stroke-width="3.5" fill="none"/></svg>
+      <div><h3>Normas</h3><div class="what">BPD · ANMAT · GS1</div><p>Garantizan la seguridad del medicamento y el cumplimiento legal.</p></div>
+    </div>
+    <div class="t rv" style="--d:0.32">
+      <svg viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" fill="#bfe6f5" class="ink"/><rect x="14" y="16" width="28" height="18" fill="#fff" class="ink"/><rect x="54" y="16" width="28" height="18" fill="#fff" class="ink"/><path d="M48 52l14 10-14 10-14-10z" fill="#f3c623" class="ink"/><path d="M42 25h10M68 34v8l-12 8" fill="none" stroke="#1c1d1f" stroke-width="3"/><path d="M50 21l5 4-5 4" fill="#1c1d1f"/></svg>
+      <div><h3>Diagramas de flujo</h3><div class="what">Recorrido del bulto</div><p>Muestran cómo funciona el proceso y dónde hay errores o demoras.</p></div>
+    </div>
+    <div class="t rv" style="--d:0.42">
+      <svg viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" fill="#fff" class="ink"/><path d="M4 28h88M4 48h88M4 68h88M36 4v88M64 4v88" class="ink" stroke-width="2.4"/><rect x="6" y="6" width="84" height="20" fill="#1c1d1f"/><path d="M42 58l5 5 10-10" stroke="#2f9e5b" stroke-width="4" fill="none"/></svg>
+      <div><h3>Tablas de control</h3><div class="what">Lote · vencimiento · temp. · destino</div><p>Ordenan los datos para seguir cada producto.</p></div>
+    </div>
+    <div class="t rv" style="--d:0.52">
+      <svg viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" fill="#ebe7de" class="ink"/><rect x="38" y="12" width="20" height="54" rx="10" fill="#fff" class="ink"/><rect x="44" y="30" width="8" height="40" fill="#3fb4dd"/><circle cx="48" cy="72" r="13" fill="#d63a2f" class="ink"/><g fill="none" stroke="#3fb4dd" stroke-width="3.5" stroke-linecap="round"><path d="M66 30q8 8 0 16"/><path d="M73 24q14 14 0 28"/></g></svg>
+      <div><h3>Sensores y medición</h3><div class="what">Temperatura y humedad</div><p>Detectan a tiempo cualquier desvío de la cadena de frío.</p></div>
+    </div>
+    <div class="t rv" style="--d:0.62">
+      <svg viewBox="0 0 96 96"><rect x="4" y="4" width="88" height="88" fill="#1f4e79" class="ink"/><path d="M18 22h60v44H18z M18 44h28 M46 22v44" fill="none" stroke="#fff" stroke-width="2.6"/><path d="M18 78h60M18 74v8M78 74v8" stroke="#f3c623" stroke-width="2.6"/></svg>
+      <div><h3>Planos a escala</h3><div class="what">AutoCAD · esc. 1:200</div><p>Permiten verificar circulaciones, pasillos y superficies.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- ============ 05 ALTERNATIVAS ============ -->
 <section class="slide" id="s5">
-  <header class="sh"><b>05</b>Generación de alternativas<span class="stripe"></span></header>
+  <header class="sh"><b>07</b>Generación de alternativas<span class="stripe"></span></header>
   <h2 class="rv">Tres <em>caminos</em> posibles</h2>
   <div class="cards3" style="margin-top:26px">
     <div class="alt rv" style="--d:.15">
@@ -660,7 +847,8 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       </svg>
       <div class="body"><span class="num">ALTERNATIVA 01</span><h3>Reorganización manual</h3>
         <p>Productos ordenados alfabéticamente y por importancia. Personal específico, etiquetas impresas y registro en PC.</p>
-        <div class="meter">INNOVACIÓN <i class="on"></i><i></i><i></i></div></div>
+        <div class="meter">INNOVACIÓN <i class="on"></i><i></i><i></i></div>
+        <ul class="vals"><li><span class="vk s">Social</span>menos errores y estrés</li><li><span class="vk e">Económico</span>costo bajo, ahorra tiempo</li></ul></div>
     </div>
     <div class="alt rv" style="--d:.3">
       <svg viewBox="0 0 400 210">
@@ -672,7 +860,8 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       </svg>
       <div class="body"><span class="num">ALTERNATIVA 02</span><h3>Mixto · LED + código de barras</h3>
         <p>Pistolas lectoras al recibir, stock digital y luces LED que indican qué caja tomar. Vía rápida separada para emergencias.</p>
-        <div class="meter">INNOVACIÓN <i class="on"></i><i class="on"></i><i></i></div></div>
+        <div class="meter">INNOVACIÓN <i class="on"></i><i class="on"></i><i></i></div>
+        <ul class="vals"><li><span class="vk t">Tecnológico</span>stock digital y guía LED</li><li><span class="vk s">Social</span>urgencias más rápidas</li><li><span class="vk e">Económico</span>menos pérdidas de stock</li><li><span class="vk a">Ambiental</span>menos vencidos</li></ul></div>
     </div>
     <div class="alt pick rv" style="--d:.45">
       <svg viewBox="0 0 400 210">
@@ -684,30 +873,40 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       </svg>
       <div class="body"><span class="num">ALTERNATIVA 03</span><h3>Mixto · RFID + asistencia humana</h3>
         <p>Cada bulto lleva un chip RFID; los portales leen lotes y vencimientos en masa. Estanterías de alta densidad y zorras eléctricas.</p>
-        <div class="meter">INNOVACIÓN <i class="on"></i><i class="on"></i><i class="on"></i></div></div>
+        <div class="meter">INNOVACIÓN <i class="on"></i><i class="on"></i><i class="on"></i></div>
+        <ul class="vals"><li><span class="vk t">Tecnológico</span>lectura masiva automática</li><li><span class="vk s">Social</span>el operario decide, no carga</li><li><span class="vk e">Económico</span>menos vencidos, errores y multas</li><li><span class="vk a">Ambiental</span>mucho menos desperdicio</li></ul></div>
     </div>
   </div>
 </section>
 
 <!-- ============ 06 MATRIZ ============ -->
 <section class="slide" id="s6">
-  <header class="sh"><b>06</b>Evaluación · matriz ponderada<span class="stripe"></span></header>
+  <header class="sh"><b>08</b>Evaluación y toma de decisiones<span class="stripe"></span></header>
   <h2 class="rv" style="font-size:80px">¿Por qué la <em>alternativa 3</em>?</h2>
-  <table class="mx rv" style="--d:.15">
-    <thead><tr><th>Criterio</th><th>Peso</th><th>Alt. 1 · Manual</th><th>Alt. 2 · LED</th><th class="a3">Alt. 3 · RFID</th></tr></thead>
-    <tbody id="mxBody"></tbody>
-  </table>
-  <div class="totals rv" style="--d:.3">
-    <div class="tot" style="--p:1.40"><div class="k">ALT. 1 · PUNTAJE</div><div class="n">1,40</div><div class="tb"><i></i></div></div>
-    <div class="tot" style="--p:3.30"><div class="k">ALT. 2 · PUNTAJE</div><div class="n">3,30</div><div class="tb"><i></i></div></div>
-    <div class="tot win" style="--p:3.65"><div class="k">ALT. 3 · PUNTAJE</div><div class="n">3,65</div><div class="tb"><i></i></div><span class="stamp">ELEGIDA</span></div>
+  <div class="dec">
+    <div class="rv" style="--d:.15">
+      <table class="mx">
+        <thead><tr><th>Criterio</th><th>Alt. 1 · Manual</th><th>Alt. 2 · LED</th><th class="a3">Alt. 3 · RFID</th></tr></thead>
+        <tbody id="mxBody"></tbody>
+      </table>
+      <p class="note"><b style="color:#2f9e5b">✓</b> mejor valor del criterio &nbsp;·&nbsp; <b style="color:#d63a2f">✗</b> no alcanza la exigencia legal &nbsp;·&nbsp; la barra indica qué tan favorable es (en costo, más barato = mejor)</p>
+    </div>
+    <div class="verdict rv" style="--d:.35">
+      <div class="vh">ALT. 3 · RFID + ASISTENCIA HUMANA</div>
+      <span class="stamp">ELEGIDA</span>
+      <ol>
+        <li><span><b>Única con trazabilidad alta.</b> Es una exigencia legal (Res. 435/2011).</span></li>
+        <li><span><b>La más rápida.</b> Lee muchos bultos a la vez, sin escanear uno por uno.</span></li>
+        <li><span><b>Las personas siguen decidiendo.</b> Urgencias y control quedan en manos del operario.</span></li>
+      </ol>
+      <div class="cede"><b>Lo que cede:</b> es la de mayor inversión → se implementa por etapas, primero recepción y cámara de frío.</div>
+    </div>
   </div>
-  <p class="note rv" style="--d:.4">Escala: Baja 1 · Media 2 · Media-Alta 3 · Alta 4 · Muy alta 5 — en costo se invierte (más barato = más puntos). La trazabilidad pesa más porque es una obligación legal, no una preferencia. La Alt. 2 gana en costo y facilidad, pero la 3 gana donde no se puede negociar.</p>
 </section>
 
 <!-- ============ 07 RECORRIDO ============ -->
 <section class="slide" id="s7">
-  <header class="sh"><b>07</b>La solución en funcionamiento<span class="stripe"></span></header>
+  <header class="sh"><b>09</b>La solución en funcionamiento<span class="stripe"></span></header>
   <h2 class="rv" style="font-size:76px">El recorrido de un <em>bulto</em></h2>
   <svg id="plant" viewBox="0 0 1420 470" class="rv" style="--d:.1">
     <!-- floor + fast track -->
@@ -742,6 +941,8 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       <g><image href="img/caja-chip-1.png" x="577" y="83.8" width="52" height="48.2"/><image href="img/caja-chip-2.png" x="664" y="84.0" width="48" height="48.0"/><image href="img/caja-chip-1.png" x="577" y="145.8" width="52" height="48.2"/><image href="img/caja-chip-2.png" x="750" y="146.0" width="48" height="48.0"/><image href="img/caja-chip-1.png" x="664" y="269.8" width="52" height="48.2"/><image href="img/caja-chip-2.png" x="577" y="332.0" width="48" height="48.0"/><image href="img/caja-chip-1.png" x="750" y="331.8" width="52" height="48.2"/></g>
       <g><image href="img/caja-vacunas.png" x="751" y="85.0" width="50" height="47.0"/><image href="img/caja-vacunas.png" x="578" y="209.0" width="50" height="47.0"/><image href="img/caja-vacunas.png" x="751" y="271.0" width="50" height="47.0"/></g>
       <text x="690" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="14" font-weight="700">ESTANTERÍA ALTA DENSIDAD</text>
+      <g><rect x="564" y="122" width="11" height="9" fill="#b0329a"/><rect x="651" y="122" width="11" height="9" fill="#b0329a"/><rect x="737" y="122" width="11" height="9" fill="#b0329a"/><rect x="564" y="184" width="11" height="9" fill="#b0329a"/><rect x="651" y="184" width="11" height="9" fill="#b0329a"/><rect x="737" y="184" width="11" height="9" fill="#b0329a"/><rect x="564" y="246" width="11" height="9" fill="#b0329a"/><rect x="651" y="246" width="11" height="9" fill="#b0329a"/><rect x="737" y="246" width="11" height="9" fill="#b0329a"/><rect x="564" y="308" width="11" height="9" fill="#b0329a"/><rect x="651" y="308" width="11" height="9" fill="#b0329a"/><rect x="737" y="308" width="11" height="9" fill="#b0329a"/><rect x="564" y="370" width="11" height="9" fill="#b0329a"/><rect x="651" y="370" width="11" height="9" fill="#b0329a"/><rect x="737" y="370" width="11" height="9" fill="#b0329a"/></g>
+      <rect x="590" y="391" width="11" height="9" fill="#b0329a"/><text x="607" y="400" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#b0329a">TAG DE POSICIÓN</text>
     </g>
     <!-- exit portal -->
     <g>
@@ -763,10 +964,10 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
   </svg>
   <div class="ro-m" id="roM" aria-live="polite"></div>
   <div class="steps" id="steps">
-    <div class="step"><b>1 · Recepción</b>Llega el camión. Cada bulto lleva un tag RFID con sensor de temperatura.</div>
-    <div class="step"><b>2 · Portal</b>Lee lote, vencimiento y temperatura de muchos bultos a la vez, sin escanear uno por uno.</div>
-    <div class="step"><b>3 · Guardado</b>Estantería de alta densidad: el sistema sabe dónde está cada bulto y cuándo vence.</div>
-    <div class="step"><b>4 · Traslado</b>El operario arma el pedido con una zorra eléctrica asistida por el sistema.</div>
+    <div class="step"><b>1 · Recepción</b>Llega el camión. Cada bulto trae su tag RFID que lo identifica.</div>
+    <div class="step"><b>2 · Portal</b>Lee lote y vencimiento de todos los bultos a la vez, sin escanear uno por uno.</div>
+    <div class="step"><b>3 · Guardado</b>El sistema asigna la posición; la zorra lee el tag del bulto y el de la estantería y confirma dónde quedó.</div>
+    <div class="step"><b>4 · Pedido</b>El sistema indica la posición exacta del bulto y la zorra confirma que se tomó el correcto.</div>
     <div class="step"><b>5 · Despacho</b>El portal de salida confirma qué sale, hacia dónde y en qué condiciones.</div>
     <div class="step urg"><b>Urgencia</b>El operario prioriza a mano los pedidos de cirugía por el carril fast-track.</div>
   </div>
@@ -774,7 +975,7 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 
 <!-- ============ 08 PLANO ============ -->
 <section class="slide" id="splano">
-  <header class="sh"><b>08</b>Plano de la planta · 40 × 25 m<span class="stripe"></span></header>
+  <header class="sh"><b>10</b>Plano de la planta · 40 × 25 m<span class="stripe"></span></header>
   <h2 class="rv" style="font-size:70px;margin-bottom:6px">La planta <em>vista desde arriba</em></h2>
   <div class="plano">
     <div class="sheet rv" style="--d:.1">
@@ -798,24 +999,50 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 <polyline class="pl-wall" style="stroke-width:0.25" points="14.5,10.0 18,10.0 18,0.0"/>
 <line class="pl-door" x1="12" y1="10.0" x2="14.5" y2="10.0"/>
 <rect class="pl-rack-cold" x="8.6" y="0.25" width="2.8" height="1.05"/>
+<rect class="pl-tagp" x="9.83" y="0.83" width=".34" height=".34"/>
 <rect class="pl-rack-cold" x="8.6" y="3.6" width="2.8" height="2.4"/>
+<rect class="pl-tagp" x="9.83" y="5.53" width=".34" height=".34"/>
 <rect class="pl-rack-cold" x="11.6" y="0.25" width="2.8" height="1.05"/>
+<rect class="pl-tagp" x="12.83" y="0.83" width=".34" height=".34"/>
 <rect class="pl-rack-cold" x="11.6" y="3.6" width="2.8" height="2.4"/>
+<rect class="pl-tagp" x="12.83" y="5.53" width=".34" height=".34"/>
 <rect class="pl-rack-cold" x="14.6" y="0.25" width="2.8" height="1.05"/>
+<rect class="pl-tagp" x="15.83" y="0.83" width=".34" height=".34"/>
 <rect class="pl-rack-cold" x="14.6" y="3.6" width="2.8" height="2.4"/>
-<text class="pl-t " x="13" y="2.45" font-size="0.65">CÁMARA DE FRÍO 2–8 °C</text>
+<rect class="pl-tagp" x="15.83" y="5.53" width=".34" height=".34"/>
+<text class="pl-t " x="13" y="2.45" font-size="0.52">CÁMARA DE FRÍO 2–8 °C</text>
+<line class="pl-beam" x1="12" y1="10.0" x2="14.5" y2="10.0"/>
+<rect class="pl-post" x="11.7" y="9.7" width=".6" height=".6"/>
+<rect class="pl-post" x="14.2" y="9.7" width=".6" height=".6"/>
+<g class="pl-scan"><circle cx="13.25" cy="10.0" r="1.2"/><circle cx="13.25" cy="10.0" r="1.2" style="animation-delay:.8s"/></g>
+<g class="pl-ant"><circle cx="10.4" cy="7.6" r=".38"/><circle class="c" cx="10.4" cy="7.6" r=".14"/></g>
+<g class="pl-ant"><circle cx="16.1" cy="7.6" r=".38"/><circle class="c" cx="16.1" cy="7.6" r=".14"/></g>
+<g class="pl-ant"><circle cx="8.75" cy="2.45" r=".38"/><circle class="c" cx="8.75" cy="2.45" r=".14"/></g>
+<g class="pl-ant"><circle cx="17.25" cy="2.45" r=".38"/><circle class="c" cx="17.25" cy="2.45" r=".14"/></g>
 <rect class="pl-rack" x="20.5" y="8.3" width="2.7" height="1.2"/>
+<rect class="pl-tagp" x="21.68" y="9.03" width=".34" height=".34"/>
 <rect class="pl-rack" x="23.3" y="8.3" width="2.7" height="1.2"/>
+<rect class="pl-tagp" x="24.48" y="9.03" width=".34" height=".34"/>
 <rect class="pl-rack" x="26.1" y="8.3" width="2.7" height="1.2"/>
+<rect class="pl-tagp" x="27.28" y="9.03" width=".34" height=".34"/>
 <rect class="pl-rack" x="28.9" y="8.3" width="2.7" height="1.2"/>
+<rect class="pl-tagp" x="30.08" y="9.03" width=".34" height=".34"/>
 <rect class="pl-rack" x="20.5" y="3.6" width="2.7" height="2.4"/>
+<rect class="pl-tagp" x="21.68" y="5.53" width=".34" height=".34"/>
 <rect class="pl-rack" x="23.3" y="3.6" width="2.7" height="2.4"/>
+<rect class="pl-tagp" x="24.48" y="5.53" width=".34" height=".34"/>
 <rect class="pl-rack" x="26.1" y="3.6" width="2.7" height="2.4"/>
+<rect class="pl-tagp" x="27.28" y="5.53" width=".34" height=".34"/>
 <rect class="pl-rack" x="28.9" y="3.6" width="2.7" height="2.4"/>
+<rect class="pl-tagp" x="30.08" y="5.53" width=".34" height=".34"/>
 <rect class="pl-rack" x="20.5" y="0.15" width="2.7" height="1.15"/>
+<rect class="pl-tagp" x="21.68" y="0.83" width=".34" height=".34"/>
 <rect class="pl-rack" x="23.3" y="0.15" width="2.7" height="1.15"/>
+<rect class="pl-tagp" x="24.48" y="0.83" width=".34" height=".34"/>
 <rect class="pl-rack" x="26.1" y="0.15" width="2.7" height="1.15"/>
+<rect class="pl-tagp" x="27.28" y="0.83" width=".34" height=".34"/>
 <rect class="pl-rack" x="28.9" y="0.15" width="2.7" height="1.15"/>
+<rect class="pl-tagp" x="30.08" y="0.83" width=".34" height=".34"/>
 <text class="pl-t " x="26" y="7.0" font-size="0.65">ALTA DENSIDAD</text>
 <text class="pl-t pl-muted" x="26" y="2.45" font-size="0.494">STOCK GENERAL</text>
 <rect class="pl-dock" x="0.4" y="0.4" width="4.6" height="9.1"/>
@@ -865,8 +1092,11 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 <text class="pl-t pl-muted" x="37.0" y="3.6" font-size="0.468">SUPERVISIÓN</text>
 <rect class="pl-zone" x="33.6" y="6.5" width="6.0" height="3.2"/>
 <rect class="pl-pjack" x="34.0" y="7.8" width="1.5" height="1.5"/>
+<polygon class="pl-reader" points="34.45,8.77 35.05,8.77 34.75,8.25"/>
 <rect class="pl-pjack" x="35.9" y="7.8" width="1.5" height="1.5"/>
+<polygon class="pl-reader" points="36.35,8.77 36.95,8.77 36.65,8.25"/>
 <rect class="pl-pjack" x="37.8" y="7.8" width="1.5" height="1.5"/>
+<polygon class="pl-reader" points="38.25,8.77 38.85,8.77 38.55,8.25"/>
 <text class="pl-t " x="37.2" y="7.25" font-size="0.468">CARGA ZORRAS</text>
 <rect class="pl-truck" x="-10.6" y="5.75" width="10.2" height="2.5"/>
 <rect class="pl-cab" x="-12.6" y="5.85" width="1.8" height="2.3"/>
@@ -886,6 +1116,12 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 <g class="pl-badge"><rect x="33.75" y="4.55" width=".9" height=".9"/><text x="34.2" y="5.0">11</text></g>
 <g class="pl-badge"><rect x="33.75" y="6.8" width=".9" height=".9"/><text x="34.2" y="7.25">12</text></g>
 <g class="pl-badge"><rect x="0.55" y="22.55" width=".9" height=".9"/><text x="1.0" y="23.0">13</text></g>
+<g class="pl-legend"><text class="pl-lt pl-ltitle" x="-12.4" y="12.4">REFERENCIAS RFID</text>
+<rect class="pl-post" x="-12.3" y="13.2" width=".6" height=".6"/><text class="pl-lt" x="-11.3" y="13.5">Portal RFID</text>
+<g class="pl-ant"><circle cx="-12.0" cy="14.6" r=".38"/><circle class="c" cx="-12.0" cy="14.6" r=".14"/></g><text class="pl-lt" x="-11.3" y="14.6">Antena fija de techo</text>
+<rect class="pl-tagp" x="-12.17" y="15.53" width=".34" height=".34"/><text class="pl-lt" x="-11.3" y="15.7">Tag de posición</text>
+<polygon class="pl-reader" points="-12.30,17.02 -11.70,17.02 -12.00,16.50"/><text class="pl-lt" x="-11.3" y="16.8">Lector en zorra</text>
+</g>
 <g class="pl-dim"><line x1="0" y1="26.6" x2="40" y2="26.6"/><line x1="0" y1="26.3" x2="0" y2="26.900000000000002"/><line x1="40" y1="26.3" x2="40" y2="26.900000000000002"/><text x="20.0" y="26.35">40.00</text></g>
 <g class="pl-dim"><line x1="41.6" y1="25.0" x2="41.6" y2="0.0"/><line x1="41.300000000000004" y1="25.0" x2="41.9" y2="25.0"/><line x1="41.300000000000004" y1="0.0" x2="41.9" y2="0.0"/><text transform="translate(41.95 12.5) rotate(-90)">25.00</text></g>
 <g class="pl-dim"><line x1="8" y1="-1.2" x2="18" y2="-1.2"/><line x1="8" y1="-1.5" x2="8" y2="-0.8999999999999999"/><line x1="18" y1="-1.5" x2="18" y2="-0.8999999999999999"/><text x="13.0" y="-1.45">10.00</text></g>
@@ -914,7 +1150,6 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       <li><span class="n">13</span>Vestuario / baños</li>
       <li class="sw" style="display:flex"><i></i>RECORRIDO DE UN BULTO</li>
       <li class="sw" style="display:flex"><i class="r"></i>PEDIDO URGENTE</li>
-      <li class="dxf" style="display:block">Archivo para AutoCAD: plano/traza-rfid-planta.dxf · esc. 1:200</li>
       <li class="signal" style="display:block"><div class="sg">
         <img src="img/senalero-base.png" alt="Señalero dirigiendo con bastones luminosos">
         <img class="sg-arm" src="img/senalero-brazo.png" alt="">
@@ -926,47 +1161,68 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 
 <!-- ============ 08 CADENA DE FRIO ============ -->
 <section class="slide" id="s8">
-  <header class="sh"><b>09</b>Mejora · cadena de frío<span class="stripe"></span></header>
-  <h2 class="rv" style="font-size:80px">El chip también <em>mide el frío</em></h2>
-  <p class="lead rv" style="--d:.1">Sumamos tags RFID con sensor de temperatura: cierran el problema de la Clase 2 y usan los sensores que propusimos como herramienta.</p>
+  <header class="sh"><b>11</b>Mejora · cadena de frío<span class="stripe"></span></header>
+  <h2 class="rv" style="font-size:80px">Cuánto tiempo <em>fuera del frío</em></h2>
+  <p class="lead rv" style="--d:.1">La cámara y los camiones ya miden su temperatura: el riesgo está en los minutos afuera. El portal de la cámara registra cuándo sale y vuelve cada bulto, y el sistema cronometra ese tiempo. Los medicamentos muy caros o críticos llevan, además, su propio tag con sensor.</p>
   <div class="cf">
     <div class="panel rv" style="--d:.2">
       <svg viewBox="0 0 560 300">
-        <line x1="0" y1="250" x2="560" y2="250" class="ink"/>
-        <line x1="0" y1="272" x2="560" y2="272" stroke="#1c1d1f" stroke-width="4" stroke-dasharray="34 26" class="road"/>
-        <g transform="translate(55 42) scale(0.38)"><g class="rumble"><image href="img/camion-cuerpo.png" width="900" height="557"/><image href="img/conservadora.png" x="215" y="141.1" width="170" height="158.9"/><use href="#chip" transform="translate(318 278) scale(3)"/></g><g><image href="img/camion-rueda1.png" width="900" height="557"/><circle cx="720.3" cy="477.6" r="5" fill="#4a4d50"/><circle cx="704.3" cy="493.6" r="5" fill="#4a4d50"/><circle cx="688.3" cy="477.6" r="5" fill="#4a4d50"/><circle cx="704.3" cy="461.6" r="5" fill="#4a4d50"/><animateTransform attributeName="transform" type="rotate" from="0 704.3 477.6" to="360 704.3 477.6" dur="0.9s" repeatCount="indefinite"/></g><g><image href="img/camion-rueda2.png" width="900" height="557"/><circle cx="195.9" cy="477.6" r="5" fill="#4a4d50"/><circle cx="179.9" cy="493.6" r="5" fill="#4a4d50"/><circle cx="163.9" cy="477.6" r="5" fill="#4a4d50"/><circle cx="179.9" cy="461.6" r="5" fill="#4a4d50"/><animateTransform attributeName="transform" type="rotate" from="0 179.9 477.6" to="360 179.9 477.6" dur="0.9s" repeatCount="indefinite"/></g></g>
-        <g class="waves" fill="none" stroke="#3fb4dd" stroke-width="4" stroke-linecap="round" transform="translate(168 48)">
-          <path d="M-14 -10q14 -14 28 0"/><path d="M-26 -22q26 -26 52 0"/><path d="M-38 -34q38 -38 76 0"/>
+        <line x1="0" y1="270" x2="560" y2="270" class="ink"/>
+        <!-- cámara con su propio medidor -->
+        <rect x="20" y="50" width="210" height="220" fill="#bfe6f5" fill-opacity=".55" stroke="#1c1d1f" stroke-width="4"/>
+        <text x="125" y="40" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700">CÁMARA 2–8 °C</text>
+        <g transform="translate(40 66)"><rect width="56" height="30" fill="#1c1d1f"/><text x="28" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#3fb4dd">4,1°</text></g>
+        <line x1="30" y1="232" x2="220" y2="232" class="ink"/>
+        <image href="img/caja-vacunas.png" x="40" y="174" width="62" height="58.3"/>
+        <!-- medicamento crítico con sensor propio -->
+        <image href="img/conservadora.png" x="122" y="178" width="58" height="54.3"/>
+        <g transform="translate(176 160)"><circle r="15" fill="#d63a2f" class="ink"/><text y="5" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fff">°C</text></g>
+        <text x="125" y="262" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#d63a2f">CRÍTICO: SENSOR PROPIO</text>
+        <!-- portal en la puerta -->
+        <rect x="222" y="140" width="16" height="16" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+        <rect x="222" y="238" width="16" height="16" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+        <line x1="230" y1="156" x2="230" y2="238" stroke="#3fb4dd" stroke-width="4" stroke-dasharray="8 6"/>
+        <text x="230" y="130" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700">PORTAL</text>
+        <!-- bulto afuera con cronómetro -->
+        <image href="img/caja-vacunas.png" x="268" y="212" width="62" height="58.3"/><use href="#chip" transform="translate(318 252) scale(1)"/>
+        <g transform="translate(300 170)">
+          <rect x="-48" y="-22" width="96" height="34" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/>
+          <text y="2" text-anchor="middle" font-family="JetBrains Mono" font-size="16" font-weight="700">⏱ 18 min</text>
         </g>
+        <!-- sensor de zona -->
+        <g transform="translate(380 92)"><rect x="-7" y="-26" width="14" height="40" rx="7" fill="#fff" class="ink"/><circle cy="20" r="11" fill="#d63a2f" class="ink"/></g>
+        <text x="380" y="138" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700">SENSOR DE ZONA</text>
+        <line x1="396" y1="80" x2="440" y2="62" stroke="#3fb4dd" stroke-width="3" stroke-dasharray="8 6"/>
         <g transform="translate(440 30)">
-          <rect width="100" height="70" fill="#1c1d1f"/><text x="50" y="28" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#f3c623">CENTRAL</text>
-          <text x="50" y="52" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#3fb4dd">en vivo</text>
+          <rect width="110" height="70" fill="#1c1d1f"/><text x="55" y="24" text-anchor="middle" font-family="JetBrains Mono" font-size="12" fill="#f3c623">SALA DE</text><text x="55" y="38" text-anchor="middle" font-family="JetBrains Mono" font-size="12" fill="#f3c623">CONTROL</text>
+          <text x="55" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#3fb4dd">en vivo</text>
         </g>
-        <image class="jab" href="img/operario-senalando.png" x="442" y="120" width="78.9" height="130"/>
+        <image class="jab" href="img/operario-senalando.png" x="465" y="140" width="78.9" height="130"/>
       </svg>
       <div class="cmp">
-        <div><b>SIN SENSOR</b>Recién al llegar se descubre que se cortó el frío. El insumo se tira.</div>
-        <div><b>CON TAG + SENSOR</b>La central recibe la alerta durante el viaje y puede actuar antes de perder la carga.</div>
+        <div><b>SIN CONTROL</b>Nadie sabe cuánto tiempo estuvo un bulto afuera: se despacha igual o se tira.</div>
+        <div><b>CON TRAZA-RFID</b>Cada salida de la cámara se cronometra y la sala de control avisa antes de superar el límite.</div>
       </div>
     </div>
     <div class="panel rv" style="--d:.35">
       <svg viewBox="0 0 760 470">
-        <text x="30" y="40" font-family="JetBrains Mono" font-weight="700" font-size="16">TEMPERATURA DEL BULTO · LOTE A-2231</text>
-        <rect x="80" y="210" width="640" height="150" fill="#bfe6f5" opacity=".55"/>
-        <text x="700" y="290" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#1c6f8f">RANGO SEGURO 2–8 °C</text>
+        <text x="30" y="40" font-family="JetBrains Mono" font-weight="700" font-size="16">TIEMPO FUERA DE FRÍO · LOTE A-2231</text>
+        <rect x="80" y="210" width="640" height="200" fill="#bfe6f5" opacity=".55"/>
+        <text x="700" y="330" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#1c6f8f">TIEMPO PERMITIDO</text>
         <line x1="80" y1="210" x2="720" y2="210" stroke="#d63a2f" stroke-width="2.5" stroke-dasharray="10 6"/>
+        <text x="100" y="232" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#d63a2f">LÍMITE 20 MIN</text>
         <line x1="80" y1="70" x2="80" y2="410" class="ink"/><line x1="80" y1="410" x2="720" y2="410" class="ink"/>
         <g font-family="JetBrains Mono" font-size="14" text-anchor="end">
-          <text x="70" y="115">12°</text><text x="70" y="215">8°</text><text x="70" y="315">4°</text><text x="70" y="365">2°</text>
+          <text x="70" y="115">30'</text><text x="70" y="215">20'</text><text x="70" y="315">10'</text><text x="70" y="414">0'</text>
         </g>
-        <g font-family="JetBrains Mono" font-size="14" text-anchor="middle"><text x="80" y="434">0 h</text><text x="400" y="434">5 h</text><text x="720" y="434">10 h</text></g>
-        <path id="tline" d="M80 310 L144 302 L208 315 L272 300 L336 290 L400 268 L464 240 L528 212 L592 188 L656 170 L720 160" fill="none" stroke="#1c1d1f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+        <g font-family="JetBrains Mono" font-size="13" text-anchor="middle"><text x="140" y="434">recepción</text><text x="400" y="434">clasificación</text><text x="680" y="434">andén</text></g>
+        <path id="tline" d="M80 410 L160 370 L240 370 L320 330 L400 300 L460 270 L520 240 L592 210 L656 190 L720 175" fill="none" stroke="#1c1d1f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
         <g class="alertbox">
-          <circle cx="592" cy="188" r="10" fill="#d63a2f"/>
-          <rect x="390" y="76" width="320" height="64" fill="#d63a2f" stroke="#1c1d1f" stroke-width="3"/>
-          <text x="406" y="102" font-family="JetBrains Mono" font-weight="700" font-size="16" fill="#fff">⚠ ALERTA · 8,6 °C</text>
-          <text x="406" y="126" font-family="JetBrains Mono" font-size="14" fill="#fff">se avisa en ruta, no al llegar</text>
-          <line x1="560" y1="140" x2="588" y2="178" stroke="#d63a2f" stroke-width="3"/>
+          <circle cx="592" cy="210" r="10" fill="#d63a2f"/>
+          <rect x="300" y="76" width="320" height="64" fill="#d63a2f" stroke="#1c1d1f" stroke-width="3"/>
+          <text x="316" y="102" font-family="JetBrains Mono" font-weight="700" font-size="16" fill="#fff">⚠ 20 MIN FUERA DEL FRÍO</text>
+          <text x="316" y="126" font-family="JetBrains Mono" font-size="14" fill="#fff">aviso: volver a la cámara</text>
+          <line x1="560" y1="140" x2="588" y2="200" stroke="#d63a2f" stroke-width="3"/>
         </g>
       </svg>
     </div>
@@ -975,7 +1231,7 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 
 <!-- ============ 09 RIESGOS ============ -->
 <section class="slide" id="s9">
-  <header class="sh"><b>10</b>Riesgos y cómo los manejamos<span class="stripe"></span></header>
+  <header class="sh"><b>12</b>Riesgos y cómo los manejamos<span class="stripe"></span></header>
   <h2 class="rv">Ninguna solución es <em>perfecta</em></h2>
   <div class="thinker rv" style="--d:.7">
     <img src="img/inspector.png" alt="Inspector pensando">
@@ -995,7 +1251,7 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 
 <!-- ============ 10 CIERRE ============ -->
 <section class="slide" id="s10">
-  <header class="sh"><b>11</b>Conclusión<span class="stripe"></span></header>
+  <header class="sh"><b>13</b>Conclusión<span class="stripe"></span></header>
   <div class="big rv">Tecnología que <span class="ice">lee</span>,<br><span>personas que deciden.</span></div>
   <p class="lead rv" style="--d:.2;margin-top:24px">Menos errores y desperdicio, cumplimiento de la trazabilidad legal y operarios que dejan el trabajo pesado para gestionar lo importante.</p>
   <div class="q rv" style="--d:.5">¿PREGUNTAS?</div>
@@ -1013,7 +1269,7 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
   </div>
 </section>
 
-<footer class="foot"><span class="count" id="count">01 / 11</span><span class="bar"><i id="bar"></i></span><span class="hint">← → navegar · F pantalla completa</span></footer>
+<footer class="foot"><span class="count" id="count">01 / 12</span><span class="bar"><i id="bar"></i></span><span class="hint">← → navegar · F pantalla completa</span></footer>
 </div>
 
 <script>
@@ -1050,17 +1306,22 @@ function fig(spec){
 document.querySelectorAll('[data-fig]').forEach(g => { g.outerHTML = fig(g.dataset.fig); });
 
 // ---------- matriz ----------
+// [criterio, alt1, alt2, alt3, índice del mejor valor, ¿exigencia legal?]
 const ROWS = [
-  ['Trazabilidad legal y fiabilidad', 35, ['Baja',1], ['Media',2], ['Alta',4]],
-  ['Velocidad de procesamiento',     25, ['Baja',1], ['Alta',4], ['Muy alta',5]],
-  ['Eficacia en la priorización',    20, ['Baja',1], ['Alta',4], ['Media-Alta',3]],
-  ['Factibilidad operativa',         10, ['Baja',1], ['Alta',4], ['Media',2]],
-  ['Costo de inversión (invertido)', 10, ['Baja',5], ['Media',4], ['Alta',2]]
+  ['Trazabilidad legal y fiabilidad', ['Baja',1], ['Media',2], ['Alta',4], 2, true],
+  ['Velocidad de procesamiento',      ['Baja',1], ['Alta',4], ['Muy alta',5], 2],
+  ['Eficacia en la priorización',     ['Baja',1], ['Alta',4], ['Media-Alta',3], 1],
+  ['Factibilidad operativa',          ['Baja',1], ['Alta',4], ['Media',2], 1],
+  ['Costo de inversión',              ['Bajo',5], ['Medio',4], ['Alto',2], 0]
 ];
-document.getElementById('mxBody').innerHTML = ROWS.map(r =>
-  `<tr><td class="c">${r[0]}</td><td class="w">${r[1]}%</td>` +
-  r.slice(2).map((c, i) => `<td class="${i === 2 ? 'a3c' : ''}"><div class="cell"><span class="v">${c[0]}</span><span class="tr"><i style="--p:${c[1]}"></i></span></div></td>`).join('') +
-  '</tr>').join('');
+document.getElementById('mxBody').innerHTML = ROWS.map(([name, a1, a2, a3, best, legal]) =>
+  `<tr class="${legal ? 'legal' : ''}"><td class="c">${name}${legal ? '<span class="lg">EXIGENCIA LEGAL</span>' : ''}</td>` +
+  [a1, a2, a3].map((c, i) => {
+    const fail = legal && i !== best;
+    const cls = [i === 2 ? 'a3c' : '', i === best ? 'best' : '', fail ? 'fail' : ''].join(' ');
+    const mark = i === best ? '<span class="ok">✓</span>' : fail ? '<span class="ko">✗</span>' : '';
+    return `<td class="${cls}"><div class="cell"><span class="v">${c[0]}${mark}</span><span class="tr"><i style="--p:${c[1]}"></i></span></div></td>`;
+  }).join('') + '</tr>').join('');
 
 // ---------- deck ----------
 const stage = document.getElementById('stage');
@@ -1139,10 +1400,10 @@ const ro = ['ro1', 'ro2', 'ro3'].map(id => document.getElementById(id));
 const roM = document.getElementById('roM');
 const STEPS = [
   {pkg:[118, 300], z:0,   ro:['ESPERANDO LECTURA…', '', '']},
-  {pkg:[362, 336], z:0,   ro:['LOTE A-2231 · ×24 BULTOS', 'VTO 03/2027', 'TEMP 4,2 °C ✓'], pin:true},
-  {pkg:[748, 212], z:0,   ro:['UBICACIÓN ASIGNADA', 'RACK B · NIVEL 3', 'TEMP 4,3 °C ✓']},
-  {pkg:[1099, 262], z:120, ro:['PEDIDO #0412', 'HOSPITAL DESTINO', 'PREPARANDO…']},
-  {pkg:[1330, 336], z:120, ro:['DESPACHO CONFIRMADO', 'LOTE A-2231 → #0412', 'TEMP 4,4 °C ✓'], pout:true},
+  {pkg:[362, 336], z:0,   ro:['LOTE A-2231 · ×24 BULTOS', 'VTO 03/2027', 'DESTINO: CÁMARA ✓'], pin:true},
+  {pkg:[748, 212], z:0,   ro:['UBICACIÓN ASIGNADA', 'EST. 6 · NIVEL 3 · POS. 12', 'CONFIRMADA POR ZORRA ✓']},
+  {pkg:[1099, 262], z:120, ro:['PEDIDO #0412', 'RETIRAR EST. 6·N3·P12', 'BULTO CORRECTO ✓']},
+  {pkg:[1330, 336], z:120, ro:['DESPACHO CONFIRMADO', 'LOTE A-2231 → #0412', 'FUERA DE FRÍO: 6 MIN ✓'], pout:true},
   {pkg:[1330, 336], z:120, ro:['⚠ PRIORIDAD CIRUGÍA', 'PEDIDO #0413', 'CARRIL FAST-TRACK'], urg:true}
 ];
 let step = 0, timer = null;
