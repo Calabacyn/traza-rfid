@@ -59,12 +59,19 @@ h2 em{font-style:normal;background:var(--yellow);padding:0 12px}
 
 /* ---------- 01 portada ---------- */
 #s1 .hazard-top{position:absolute;left:0;right:0;top:56px;height:22px;background:var(--hazard)}
-#s1 h1{font-size:210px;margin-top:40px;letter-spacing:-.01em}
+#s1 h1{font-size:210px;margin-top:14px;letter-spacing:-.01em}
 #s1 h1 span{color:var(--ice);-webkit-text-stroke:4px var(--ink)}
-#s1 .sub{font-size:34px;font-weight:800;max-width:820px;line-height:1.15;margin:18px 0 26px}
+#s1 .sub{font-size:34px;font-weight:800;max-width:820px;line-height:1.15;margin:14px 0 20px}
 #s1 .meta{display:flex;gap:10px;flex-wrap:wrap;max-width:840px}
-#s1 .team{margin-top:34px;font-family:var(--mono);font-size:17px;line-height:1.7;max-width:760px}
-#s1 .team b{display:block;font-size:13px;letter-spacing:.14em;color:var(--steel)}
+#s1 .team{margin-top:26px;max-width:780px;border:3px solid var(--ink);background:var(--paper);box-shadow:6px 6px 0 var(--ink)}
+#s1 .team .th{display:flex;justify-content:space-between;gap:12px;background:var(--ink);color:var(--paper);font-family:var(--mono);font-size:12px;letter-spacing:.14em;padding:7px 14px}
+#s1 .team .th b{color:var(--yellow)}
+#s1 .team ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr)}
+#s1 .team li{padding:9px 14px;border-top:2px solid var(--ink)}
+#s1 .team li:not(:nth-child(3n+1)){border-left:2px solid var(--ink)}
+#s1 .team li:nth-child(-n+3){border-top:0}
+#s1 .team .nm{display:block;font-weight:800;font-size:19px;line-height:1.2}
+#s1 .team .dni{display:block;font-family:var(--mono);font-size:14px;color:var(--steel);margin-top:2px}
 #s1 .hero{position:absolute;right:60px;top:110px;width:640px}
 #s1 .lane{position:absolute;left:0;right:0;bottom:44px;height:150px}
 #s1 .lane svg{position:absolute;inset:0}
@@ -484,8 +491,15 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
   #s1 h1 span{-webkit-text-stroke:2px var(--ink)}
   #s1 .sub{font-size:20px;margin:12px 0 16px}
   #s1 .meta{gap:6px}
-  #s1 .team{margin-top:20px;font-size:13px;line-height:1.6}
-  #s1 .team b{font-size:11px}
+  #s1 .team{margin-top:20px;box-shadow:4px 4px 0 var(--ink)}
+  #s1 .team .th{font-size:10px;letter-spacing:.08em;padding:6px 10px}
+  #s1 .team .th span{display:none}
+  #s1 .team ul{grid-template-columns:1fr 1fr}
+  #s1 .team li{padding:7px 10px;border-top:2px solid var(--ink)!important;border-left:0!important}
+  #s1 .team li:nth-child(-n+2){border-top:0!important}
+  #s1 .team li:nth-child(even){border-left:2px solid var(--ink)!important}
+  #s1 .team .nm{font-size:14px}
+  #s1 .team .dni{font-size:11px}
   #s1 .hero{position:static;width:100%;margin-top:18px}
   #s1 .lane{position:relative;bottom:auto;height:104px;margin:6px -16px 0;border-bottom:3px dashed var(--ink)}
   #s1 .lane > svg{display:none}
@@ -617,7 +631,17 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
   <div class="meta rv" style="--d:.3">
     <span class="tag k">Situación B</span><span class="tag y">RFID + asistencia humana</span><span class="tag">Cadena de frío</span><span class="tag">Trazabilidad · Res. 435/2011</span>
   </div>
-  <div class="team rv" style="--d:.45"><b>EQUIPO</b>Matias Cruz · Lara Pintos · Lautaro Garnica<br>Mia Politi · Morena Miranda · Juan Ignacio Sánchez</div>
+  <div class="team rv" style="--d:.45">
+    <div class="th"><b>EQUIPO</b><span>EXPOSICIÓN · 28/10/2026</span></div>
+    <ul>
+      <li><span class="nm">Matias Cruz</span><span class="dni">DNI 54.041.503</span></li>
+      <li><span class="nm">Lara Pintos</span><span class="dni">DNI 46.097.600</span></li>
+      <li><span class="nm">Lautaro Garnica</span><span class="dni">DNI 48.045.318</span></li>
+      <li><span class="nm">Mia Politi</span><span class="dni">DNI 47.101.527</span></li>
+      <li><span class="nm">Morena Miranda</span><span class="dni">DNI 48.697.311</span></li>
+      <li><span class="nm">Juan Ignacio Sánchez</span><span class="dni">DNI 45.747.267</span></li>
+    </ul>
+  </div>
 
   <svg class="hero rv" style="--d:.2" viewBox="0 0 640 500" aria-label="Portal RFID leyendo un bulto">
     <!-- floor -->
@@ -649,6 +673,8 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
       <text x="12" y="74" font-family="JetBrains Mono" font-size="14" fill="#3fb4dd">A CÁMARA ✓</text>
     </g>
     <path d="M470 116 L440 150" class="ink"/>
+    <!-- operario con lector de mano -->
+    <g transform="translate(192 284) scale(-1 1)"><image class="idle" href="img/operario-pistola.png" width="148" height="156"/></g>
     <!-- operator -->
     <image class="jab" href="img/operario-senalando.png" x="472" y="240" width="121.3" height="200"/>
   </svg>
