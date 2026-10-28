@@ -390,6 +390,17 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
 @keyframes blink{50%{opacity:.35}}
 
 /* ---------- 09 riesgos ---------- */
+/* ---------- frío + sala de control ---------- */
+.ctl{margin-top:12px;border:3px solid var(--ink);background:var(--paper)}
+.ctl svg{display:block;width:100%;height:auto}
+.ctl-m{display:none}
+.flowl{fill:none;stroke:var(--ice);stroke-width:4;stroke-dasharray:9 7}
+.slide.active .flowl{animation:road 1.2s linear infinite}
+.fn6{display:grid;grid-template-columns:repeat(6,1fr);border-top:3px solid var(--ink)}
+.fn6 div{padding:10px 12px;font-size:16px;line-height:1.25}
+.fn6 div+div{border-left:3px solid var(--ink)}
+.fn6 .vk{display:inline-block;margin-bottom:6px}
+.vk.r{background:var(--red);color:#fff;border-color:var(--red)}
 .risks{margin-top:30px;display:grid;gap:16px}
 .risk{display:grid;grid-template-columns:70px 1fr 60px 1fr;align-items:stretch;border:3px solid var(--ink);background:var(--paper)}
 .risk .i{display:grid;place-items:center;background:var(--hazard);border-right:3px solid var(--ink)}
@@ -545,6 +556,18 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
   .cf{grid-template-columns:1fr;gap:20px;margin-top:18px}
   .cmp div{font-size:14px;padding:12px}
   .cmp b{font-size:11px}
+
+  /* frío + sala de control */
+  .ctl > svg{display:none}
+  .ctl-m{display:block}
+  .ctl-m svg+svg{border-top:2px dashed var(--ink)}
+  .ctl-m .tline-m{stroke-dasharray:1200;stroke-dashoffset:1200}
+  .slide.active .ctl-m .tline-m{animation:draw 4s .4s linear forwards}
+  .fn6{grid-template-columns:1fr 1fr}
+  .fn6 div{font-size:13px;padding:8px 10px;border-top:2px solid var(--ink)}
+  .fn6 div+div{border-left:0}
+  .fn6 div:nth-child(even){border-left:3px solid var(--ink)}
+  .fn6 .vk{font-size:9.5px}
 
   /* 10 riesgos */
   #s9{display:flex;flex-direction:column}
@@ -1166,72 +1189,264 @@ image.hop{transform-box:fill-box;transform-origin:50% 100%}
   </div>
 </section>
 
-<!-- ============ 08 CADENA DE FRIO ============ -->
+<!-- ============ 08 CADENA DE FRIO + SALA DE CONTROL ============ -->
 <section class="slide" id="s8">
-  <header class="sh"><b>11</b>Mejora · cadena de frío<span class="stripe"></span></header>
-  <h2 class="rv" style="font-size:80px">Cuánto tiempo <em>fuera del frío</em></h2>
-  <p class="lead rv" style="--d:.1">La cámara y los camiones ya miden su temperatura: el riesgo está en los minutos afuera. El portal de la cámara registra cuándo sale y vuelve cada bulto, y el sistema cronometra ese tiempo. Los medicamentos muy caros o críticos llevan, además, su propio tag con sensor.</p>
-  <div class="cf">
-    <div class="panel rv" style="--d:.2">
-      <svg viewBox="0 0 560 300">
-        <line x1="0" y1="270" x2="560" y2="270" class="ink"/>
-        <!-- cámara con su propio medidor -->
-        <rect x="20" y="50" width="210" height="220" fill="#bfe6f5" fill-opacity=".55" stroke="#1c1d1f" stroke-width="4"/>
-        <text x="125" y="40" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700">CÁMARA 2–8 °C</text>
-        <g transform="translate(40 66)"><rect width="56" height="30" fill="#1c1d1f"/><text x="28" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#3fb4dd">4,1°</text></g>
-        <line x1="30" y1="232" x2="220" y2="232" class="ink"/>
-        <image href="img/caja-vacunas.png" x="40" y="174" width="62" height="58.3"/>
-        <!-- medicamento crítico con sensor propio -->
-        <image href="img/conservadora.png" x="122" y="178" width="58" height="54.3"/>
-        <g transform="translate(176 160)"><circle r="15" fill="#d63a2f" class="ink"/><text y="5" text-anchor="middle" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#fff">°C</text></g>
-        <text x="125" y="262" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#d63a2f">CRÍTICO: SENSOR PROPIO</text>
-        <!-- portal en la puerta -->
-        <rect x="222" y="140" width="16" height="16" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
-        <rect x="222" y="238" width="16" height="16" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
-        <line x1="230" y1="156" x2="230" y2="238" stroke="#3fb4dd" stroke-width="4" stroke-dasharray="8 6"/>
-        <text x="230" y="130" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700">PORTAL</text>
-        <!-- bulto afuera con cronómetro -->
-        <image href="img/caja-vacunas.png" x="268" y="212" width="62" height="58.3"/><use href="#chip" transform="translate(318 252) scale(1)"/>
-        <g transform="translate(300 170)">
-          <rect x="-48" y="-22" width="96" height="34" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/>
-          <text y="2" text-anchor="middle" font-family="JetBrains Mono" font-size="16" font-weight="700">⏱ 18 min</text>
-        </g>
-        <!-- sensor de zona -->
-        <g transform="translate(380 92)"><rect x="-7" y="-26" width="14" height="40" rx="7" fill="#fff" class="ink"/><circle cy="20" r="11" fill="#d63a2f" class="ink"/></g>
-        <text x="380" y="138" text-anchor="middle" font-family="JetBrains Mono" font-size="11" font-weight="700">SENSOR DE ZONA</text>
-        <line x1="396" y1="80" x2="440" y2="62" stroke="#3fb4dd" stroke-width="3" stroke-dasharray="8 6"/>
-        <g transform="translate(440 30)">
-          <rect width="110" height="70" fill="#1c1d1f"/><text x="55" y="24" text-anchor="middle" font-family="JetBrains Mono" font-size="12" fill="#f3c623">SALA DE</text><text x="55" y="38" text-anchor="middle" font-family="JetBrains Mono" font-size="12" fill="#f3c623">CONTROL</text>
-          <text x="55" y="58" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#3fb4dd">en vivo</text>
-        </g>
-        <image class="jab" href="img/operario-senalando.png" x="465" y="140" width="78.9" height="130"/>
-      </svg>
-      <div class="cmp">
-        <div><b>SIN CONTROL</b>Nadie sabe cuánto tiempo estuvo un bulto afuera: se despacha igual o se tira.</div>
-        <div><b>CON TRAZA-RFID</b>Cada salida de la cámara se cronometra y la sala de control avisa antes de superar el límite.</div>
-      </div>
+  <header class="sh"><b>11</b>Cadena de frío · sala de control<span class="stripe"></span></header>
+  <h2 class="rv" style="font-size:72px">Leer, <em>avisar</em>, decidir</h2>
+  <div class="ctl rv" style="--d:.15">
+    <svg viewBox="0 0 1420 500">
+      <g font-family="JetBrains Mono" font-weight="700" font-size="15" fill="#59636b"><text x="24" y="34">1 · LEE</text><text x="620" y="34">2 · PROCESA</text><text x="900" y="34">3 · AVISA Y SE DECIDE</text></g>
+      <line x1="0" y1="460" x2="880" y2="460" class="ink"/>
+      <!-- cámara -->
+      <rect x="24" y="80" width="260" height="380" fill="#bfe6f5" fill-opacity=".55" stroke="#1c1d1f" stroke-width="4"/>
+      <text x="154" y="186" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="15">CÁMARA 2–8 °C</text>
+      <g transform="translate(44 96)"><rect width="66" height="34" fill="#1c1d1f"/><text x="33" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#3fb4dd">4,1°</text></g>
+      <line x1="34" y1="330" x2="274" y2="330" class="ink"/>
+      <image href="img/caja-vacunas.png" x="50" y="262" width="72" height="67.7"/>
+      <image href="img/conservadora.png" x="160" y="264" width="70" height="65.4"/>
+      <g transform="translate(226 252)"><circle r="16" fill="#d63a2f" class="ink"/><text y="5" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="#fff">°C</text></g>
+      <image href="img/caja-vacunas.png" x="60" y="392" width="72" height="67.7"/>
+      <!-- portal -->
+      <rect x="276" y="200" width="18" height="18" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+      <rect x="276" y="440" width="18" height="18" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+      <line x1="285" y1="218" x2="285" y2="440" stroke="#3fb4dd" stroke-width="4" stroke-dasharray="8 6"/>
+      <text x="285" y="190" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">PORTAL</text>
+      <g class="waves" fill="none" stroke="#3fb4dd" stroke-width="3" stroke-linecap="round"><path d="M304 300q10 30 0 60"/><path d="M316 290q14 40 0 80"/><path d="M328 280q18 50 0 100"/></g>
+      <!-- bulto afuera -->
+      <image href="img/caja-chip-1.png" x="340" y="388" width="78" height="72.3"/>
+      <g transform="translate(380 306)"><rect x="-52" y="-22" width="104" height="34" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/><text y="2" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="16">⏱ 18 min</text></g>
+      <image class="idle" href="img/operario-pistola.png" x="430" y="306" width="146" height="154"/>
+      <!-- flujos hacia el WMS -->
+      <path class="flowl" d="M77 96 V56 H700 V150"/>
+      <path class="flowl" d="M294 209 H620"/>
+      <path class="flowl" d="M560 330 Q600 300 620 290"/>
+      <!-- WMS -->
+      <rect x="620" y="150" width="220" height="170" fill="#1c1d1f"/>
+      <text x="730" y="214" text-anchor="middle" font-family="Big Shoulders Stencil Display, Impact, sans-serif" font-weight="900" font-size="54" fill="#f3c623">WMS</text>
+      <text x="730" y="242" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#ebe7de">base de datos</text>
+      <g fill="#59636b"><rect x="650" y="262" width="160" height="8"/><rect x="650" y="278" width="120" height="8"/><rect x="650" y="294" width="140" height="8"/></g>
+      <circle class="led" cx="822" cy="166" r="6" fill="#2f9e5b"/>
+      <!-- flujos de salida -->
+      <path class="flowl" d="M840 190 H900"/>
+      <path class="flowl" d="M740 320 V484 H1175 V460"/>
+      <!-- tablero sala de control -->
+      <rect x="900" y="70" width="330" height="230" fill="#1c1d1f"/>
+      <text x="916" y="94" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="#f3c623">SALA DE CONTROL · EN VIVO</text>
+      <line x1="924" y1="282" x2="1214" y2="282" stroke="#59636b" stroke-width="2"/>
+      <line x1="924" y1="190" x2="1214" y2="190" stroke="#d63a2f" stroke-width="2.5" stroke-dasharray="8 5"/>
+      <text x="1212" y="206" text-anchor="end" font-family="JetBrains Mono" font-size="12" fill="#d63a2f">límite 20'</text>
+      <path id="tline" d="M924 282 L970 262 L1010 262 L1050 238 L1090 214 L1130 190 L1170 170 L1214 158" fill="none" stroke="#3fb4dd" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <g class="alertbox">
+        <circle cx="1130" cy="190" r="8" fill="#d63a2f"/>
+        <rect x="920" y="108" width="236" height="50" fill="#d63a2f"/>
+        <text x="932" y="129" font-family="JetBrains Mono" font-weight="700" font-size="14" fill="#fff">⚠ 20 MIN FUERA DEL FRÍO</text>
+        <text x="932" y="149" font-family="JetBrains Mono" font-size="12" fill="#fff">→ volver a la cámara</text>
+      </g>
+      <rect x="1050" y="300" width="30" height="26" fill="#59636b"/><rect x="1010" y="326" width="110" height="8" fill="#1c1d1f"/>
+      <image class="jab" href="img/operario-senalando.png" x="1262" y="246" width="127.4" height="210"/>
+      <rect x="900" y="352" width="350" height="38" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="1075" y="377" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="14">EL SISTEMA AVISA · LAS PERSONAS DECIDEN</text>
+      <rect x="900" y="408" width="170" height="52" fill="#fff" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="985" y="430" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">OPERARIOS</text><text x="985" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="12">tareas y avisos</text>
+      <rect x="1090" y="408" width="170" height="52" fill="#fff" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="1175" y="430" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">ANMAT ✓</text><text x="1175" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="12">trazabilidad</text>
+      <!-- confirman -->
+      <path d="M900 434 C850 434 800 400 800 328" fill="none" stroke="#d63a2f" stroke-width="3"/>
+      <path d="M792 340 L800 326 L808 340" fill="none" stroke="#d63a2f" stroke-width="3"/>
+      <text x="846" y="392" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#d63a2f">CONFIRMAN</text>
+    </svg>
+    <div class="ctl-m">
+      <svg viewBox="0 10 590 470" aria-label="1 · LEE">
+      <g font-family="JetBrains Mono" font-weight="700" font-size="15" fill="#59636b"><text x="24" y="34">1 · LEE</text><text x="620" y="34">2 · PROCESA</text><text x="900" y="34">3 · AVISA Y SE DECIDE</text></g>
+      <line x1="0" y1="460" x2="880" y2="460" class="ink"/>
+      <!-- cámara -->
+      <rect x="24" y="80" width="260" height="380" fill="#bfe6f5" fill-opacity=".55" stroke="#1c1d1f" stroke-width="4"/>
+      <text x="154" y="186" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="15">CÁMARA 2–8 °C</text>
+      <g transform="translate(44 96)"><rect width="66" height="34" fill="#1c1d1f"/><text x="33" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#3fb4dd">4,1°</text></g>
+      <line x1="34" y1="330" x2="274" y2="330" class="ink"/>
+      <image href="img/caja-vacunas.png" x="50" y="262" width="72" height="67.7"/>
+      <image href="img/conservadora.png" x="160" y="264" width="70" height="65.4"/>
+      <g transform="translate(226 252)"><circle r="16" fill="#d63a2f" class="ink"/><text y="5" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="#fff">°C</text></g>
+      <image href="img/caja-vacunas.png" x="60" y="392" width="72" height="67.7"/>
+      <!-- portal -->
+      <rect x="276" y="200" width="18" height="18" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+      <rect x="276" y="440" width="18" height="18" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+      <line x1="285" y1="218" x2="285" y2="440" stroke="#3fb4dd" stroke-width="4" stroke-dasharray="8 6"/>
+      <text x="285" y="190" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">PORTAL</text>
+      <g class="waves" fill="none" stroke="#3fb4dd" stroke-width="3" stroke-linecap="round"><path d="M304 300q10 30 0 60"/><path d="M316 290q14 40 0 80"/><path d="M328 280q18 50 0 100"/></g>
+      <!-- bulto afuera -->
+      <image href="img/caja-chip-1.png" x="340" y="388" width="78" height="72.3"/>
+      <g transform="translate(380 306)"><rect x="-52" y="-22" width="104" height="34" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/><text y="2" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="16">⏱ 18 min</text></g>
+      <image class="idle" href="img/operario-pistola.png" x="430" y="306" width="146" height="154"/>
+      <!-- flujos hacia el WMS -->
+      <path class="flowl" d="M77 96 V56 H700 V150"/>
+      <path class="flowl" d="M294 209 H620"/>
+      <path class="flowl" d="M560 330 Q600 300 620 290"/>
+      <!-- WMS -->
+      <rect x="620" y="150" width="220" height="170" fill="#1c1d1f"/>
+      <text x="730" y="214" text-anchor="middle" font-family="Big Shoulders Stencil Display, Impact, sans-serif" font-weight="900" font-size="54" fill="#f3c623">WMS</text>
+      <text x="730" y="242" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#ebe7de">base de datos</text>
+      <g fill="#59636b"><rect x="650" y="262" width="160" height="8"/><rect x="650" y="278" width="120" height="8"/><rect x="650" y="294" width="140" height="8"/></g>
+      <circle class="led" cx="822" cy="166" r="6" fill="#2f9e5b"/>
+      <!-- flujos de salida -->
+      <path class="flowl" d="M840 190 H900"/>
+      <path class="flowl" d="M740 320 V484 H1175 V460"/>
+      <!-- tablero sala de control -->
+      <rect x="900" y="70" width="330" height="230" fill="#1c1d1f"/>
+      <text x="916" y="94" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="#f3c623">SALA DE CONTROL · EN VIVO</text>
+      <line x1="924" y1="282" x2="1214" y2="282" stroke="#59636b" stroke-width="2"/>
+      <line x1="924" y1="190" x2="1214" y2="190" stroke="#d63a2f" stroke-width="2.5" stroke-dasharray="8 5"/>
+      <text x="1212" y="206" text-anchor="end" font-family="JetBrains Mono" font-size="12" fill="#d63a2f">límite 20'</text>
+      <path class="tline-m" d="M924 282 L970 262 L1010 262 L1050 238 L1090 214 L1130 190 L1170 170 L1214 158" fill="none" stroke="#3fb4dd" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <g class="alertbox">
+        <circle cx="1130" cy="190" r="8" fill="#d63a2f"/>
+        <rect x="920" y="108" width="236" height="50" fill="#d63a2f"/>
+        <text x="932" y="129" font-family="JetBrains Mono" font-weight="700" font-size="14" fill="#fff">⚠ 20 MIN FUERA DEL FRÍO</text>
+        <text x="932" y="149" font-family="JetBrains Mono" font-size="12" fill="#fff">→ volver a la cámara</text>
+      </g>
+      <rect x="1050" y="300" width="30" height="26" fill="#59636b"/><rect x="1010" y="326" width="110" height="8" fill="#1c1d1f"/>
+      <image class="jab" href="img/operario-senalando.png" x="1262" y="246" width="127.4" height="210"/>
+      <rect x="900" y="352" width="350" height="38" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="1075" y="377" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="14">EL SISTEMA AVISA · LAS PERSONAS DECIDEN</text>
+      <rect x="900" y="408" width="170" height="52" fill="#fff" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="985" y="430" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">OPERARIOS</text><text x="985" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="12">tareas y avisos</text>
+      <rect x="1090" y="408" width="170" height="52" fill="#fff" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="1175" y="430" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">ANMAT ✓</text><text x="1175" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="12">trazabilidad</text>
+      <!-- confirman -->
+      <path d="M900 434 C850 434 800 400 800 328" fill="none" stroke="#d63a2f" stroke-width="3"/>
+      <path d="M792 340 L800 326 L808 340" fill="none" stroke="#d63a2f" stroke-width="3"/>
+      <text x="846" y="392" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#d63a2f">CONFIRMAN</text>
+    </svg>
+      <svg viewBox="596 10 300 330" aria-label="2 · PROCESA">
+      <g font-family="JetBrains Mono" font-weight="700" font-size="15" fill="#59636b"><text x="24" y="34">1 · LEE</text><text x="620" y="34">2 · PROCESA</text><text x="900" y="34">3 · AVISA Y SE DECIDE</text></g>
+      <line x1="0" y1="460" x2="880" y2="460" class="ink"/>
+      <!-- cámara -->
+      <rect x="24" y="80" width="260" height="380" fill="#bfe6f5" fill-opacity=".55" stroke="#1c1d1f" stroke-width="4"/>
+      <text x="154" y="186" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="15">CÁMARA 2–8 °C</text>
+      <g transform="translate(44 96)"><rect width="66" height="34" fill="#1c1d1f"/><text x="33" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#3fb4dd">4,1°</text></g>
+      <line x1="34" y1="330" x2="274" y2="330" class="ink"/>
+      <image href="img/caja-vacunas.png" x="50" y="262" width="72" height="67.7"/>
+      <image href="img/conservadora.png" x="160" y="264" width="70" height="65.4"/>
+      <g transform="translate(226 252)"><circle r="16" fill="#d63a2f" class="ink"/><text y="5" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="#fff">°C</text></g>
+      <image href="img/caja-vacunas.png" x="60" y="392" width="72" height="67.7"/>
+      <!-- portal -->
+      <rect x="276" y="200" width="18" height="18" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+      <rect x="276" y="440" width="18" height="18" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+      <line x1="285" y1="218" x2="285" y2="440" stroke="#3fb4dd" stroke-width="4" stroke-dasharray="8 6"/>
+      <text x="285" y="190" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">PORTAL</text>
+      <g class="waves" fill="none" stroke="#3fb4dd" stroke-width="3" stroke-linecap="round"><path d="M304 300q10 30 0 60"/><path d="M316 290q14 40 0 80"/><path d="M328 280q18 50 0 100"/></g>
+      <!-- bulto afuera -->
+      <image href="img/caja-chip-1.png" x="340" y="388" width="78" height="72.3"/>
+      <g transform="translate(380 306)"><rect x="-52" y="-22" width="104" height="34" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/><text y="2" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="16">⏱ 18 min</text></g>
+      <image class="idle" href="img/operario-pistola.png" x="430" y="306" width="146" height="154"/>
+      <!-- flujos hacia el WMS -->
+      <path class="flowl" d="M77 96 V56 H700 V150"/>
+      <path class="flowl" d="M294 209 H620"/>
+      <path class="flowl" d="M560 330 Q600 300 620 290"/>
+      <!-- WMS -->
+      <rect x="620" y="150" width="220" height="170" fill="#1c1d1f"/>
+      <text x="730" y="214" text-anchor="middle" font-family="Big Shoulders Stencil Display, Impact, sans-serif" font-weight="900" font-size="54" fill="#f3c623">WMS</text>
+      <text x="730" y="242" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#ebe7de">base de datos</text>
+      <g fill="#59636b"><rect x="650" y="262" width="160" height="8"/><rect x="650" y="278" width="120" height="8"/><rect x="650" y="294" width="140" height="8"/></g>
+      <circle class="led" cx="822" cy="166" r="6" fill="#2f9e5b"/>
+      <!-- flujos de salida -->
+      <path class="flowl" d="M840 190 H900"/>
+      <path class="flowl" d="M740 320 V484 H1175 V460"/>
+      <!-- tablero sala de control -->
+      <rect x="900" y="70" width="330" height="230" fill="#1c1d1f"/>
+      <text x="916" y="94" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="#f3c623">SALA DE CONTROL · EN VIVO</text>
+      <line x1="924" y1="282" x2="1214" y2="282" stroke="#59636b" stroke-width="2"/>
+      <line x1="924" y1="190" x2="1214" y2="190" stroke="#d63a2f" stroke-width="2.5" stroke-dasharray="8 5"/>
+      <text x="1212" y="206" text-anchor="end" font-family="JetBrains Mono" font-size="12" fill="#d63a2f">límite 20'</text>
+      <path class="tline-m" d="M924 282 L970 262 L1010 262 L1050 238 L1090 214 L1130 190 L1170 170 L1214 158" fill="none" stroke="#3fb4dd" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <g class="alertbox">
+        <circle cx="1130" cy="190" r="8" fill="#d63a2f"/>
+        <rect x="920" y="108" width="236" height="50" fill="#d63a2f"/>
+        <text x="932" y="129" font-family="JetBrains Mono" font-weight="700" font-size="14" fill="#fff">⚠ 20 MIN FUERA DEL FRÍO</text>
+        <text x="932" y="149" font-family="JetBrains Mono" font-size="12" fill="#fff">→ volver a la cámara</text>
+      </g>
+      <rect x="1050" y="300" width="30" height="26" fill="#59636b"/><rect x="1010" y="326" width="110" height="8" fill="#1c1d1f"/>
+      <image class="jab" href="img/operario-senalando.png" x="1262" y="246" width="127.4" height="210"/>
+      <rect x="900" y="352" width="350" height="38" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="1075" y="377" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="14">EL SISTEMA AVISA · LAS PERSONAS DECIDEN</text>
+      <rect x="900" y="408" width="170" height="52" fill="#fff" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="985" y="430" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">OPERARIOS</text><text x="985" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="12">tareas y avisos</text>
+      <rect x="1090" y="408" width="170" height="52" fill="#fff" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="1175" y="430" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">ANMAT ✓</text><text x="1175" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="12">trazabilidad</text>
+      <!-- confirman -->
+      <path d="M900 434 C850 434 800 400 800 328" fill="none" stroke="#d63a2f" stroke-width="3"/>
+      <path d="M792 340 L800 326 L808 340" fill="none" stroke="#d63a2f" stroke-width="3"/>
+      <text x="846" y="392" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#d63a2f">CONFIRMAN</text>
+    </svg>
+      <svg viewBox="890 10 520 480" aria-label="3 · AVISA Y SE DECIDE">
+      <g font-family="JetBrains Mono" font-weight="700" font-size="15" fill="#59636b"><text x="24" y="34">1 · LEE</text><text x="620" y="34">2 · PROCESA</text><text x="900" y="34">3 · AVISA Y SE DECIDE</text></g>
+      <line x1="0" y1="460" x2="880" y2="460" class="ink"/>
+      <!-- cámara -->
+      <rect x="24" y="80" width="260" height="380" fill="#bfe6f5" fill-opacity=".55" stroke="#1c1d1f" stroke-width="4"/>
+      <text x="154" y="186" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="15">CÁMARA 2–8 °C</text>
+      <g transform="translate(44 96)"><rect width="66" height="34" fill="#1c1d1f"/><text x="33" y="23" text-anchor="middle" font-family="JetBrains Mono" font-size="15" fill="#3fb4dd">4,1°</text></g>
+      <line x1="34" y1="330" x2="274" y2="330" class="ink"/>
+      <image href="img/caja-vacunas.png" x="50" y="262" width="72" height="67.7"/>
+      <image href="img/conservadora.png" x="160" y="264" width="70" height="65.4"/>
+      <g transform="translate(226 252)"><circle r="16" fill="#d63a2f" class="ink"/><text y="5" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="#fff">°C</text></g>
+      <image href="img/caja-vacunas.png" x="60" y="392" width="72" height="67.7"/>
+      <!-- portal -->
+      <rect x="276" y="200" width="18" height="18" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+      <rect x="276" y="440" width="18" height="18" fill="#1c1d1f" stroke="#f3c623" stroke-width="3"/>
+      <line x1="285" y1="218" x2="285" y2="440" stroke="#3fb4dd" stroke-width="4" stroke-dasharray="8 6"/>
+      <text x="285" y="190" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">PORTAL</text>
+      <g class="waves" fill="none" stroke="#3fb4dd" stroke-width="3" stroke-linecap="round"><path d="M304 300q10 30 0 60"/><path d="M316 290q14 40 0 80"/><path d="M328 280q18 50 0 100"/></g>
+      <!-- bulto afuera -->
+      <image href="img/caja-chip-1.png" x="340" y="388" width="78" height="72.3"/>
+      <g transform="translate(380 306)"><rect x="-52" y="-22" width="104" height="34" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/><text y="2" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="16">⏱ 18 min</text></g>
+      <image class="idle" href="img/operario-pistola.png" x="430" y="306" width="146" height="154"/>
+      <!-- flujos hacia el WMS -->
+      <path class="flowl" d="M77 96 V56 H700 V150"/>
+      <path class="flowl" d="M294 209 H620"/>
+      <path class="flowl" d="M560 330 Q600 300 620 290"/>
+      <!-- WMS -->
+      <rect x="620" y="150" width="220" height="170" fill="#1c1d1f"/>
+      <text x="730" y="214" text-anchor="middle" font-family="Big Shoulders Stencil Display, Impact, sans-serif" font-weight="900" font-size="54" fill="#f3c623">WMS</text>
+      <text x="730" y="242" text-anchor="middle" font-family="JetBrains Mono" font-size="13" fill="#ebe7de">base de datos</text>
+      <g fill="#59636b"><rect x="650" y="262" width="160" height="8"/><rect x="650" y="278" width="120" height="8"/><rect x="650" y="294" width="140" height="8"/></g>
+      <circle class="led" cx="822" cy="166" r="6" fill="#2f9e5b"/>
+      <!-- flujos de salida -->
+      <path class="flowl" d="M840 190 H900"/>
+      <path class="flowl" d="M740 320 V484 H1175 V460"/>
+      <!-- tablero sala de control -->
+      <rect x="900" y="70" width="330" height="230" fill="#1c1d1f"/>
+      <text x="916" y="94" font-family="JetBrains Mono" font-weight="700" font-size="13" fill="#f3c623">SALA DE CONTROL · EN VIVO</text>
+      <line x1="924" y1="282" x2="1214" y2="282" stroke="#59636b" stroke-width="2"/>
+      <line x1="924" y1="190" x2="1214" y2="190" stroke="#d63a2f" stroke-width="2.5" stroke-dasharray="8 5"/>
+      <text x="1212" y="206" text-anchor="end" font-family="JetBrains Mono" font-size="12" fill="#d63a2f">límite 20'</text>
+      <path class="tline-m" d="M924 282 L970 262 L1010 262 L1050 238 L1090 214 L1130 190 L1170 170 L1214 158" fill="none" stroke="#3fb4dd" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+      <g class="alertbox">
+        <circle cx="1130" cy="190" r="8" fill="#d63a2f"/>
+        <rect x="920" y="108" width="236" height="50" fill="#d63a2f"/>
+        <text x="932" y="129" font-family="JetBrains Mono" font-weight="700" font-size="14" fill="#fff">⚠ 20 MIN FUERA DEL FRÍO</text>
+        <text x="932" y="149" font-family="JetBrains Mono" font-size="12" fill="#fff">→ volver a la cámara</text>
+      </g>
+      <rect x="1050" y="300" width="30" height="26" fill="#59636b"/><rect x="1010" y="326" width="110" height="8" fill="#1c1d1f"/>
+      <image class="jab" href="img/operario-senalando.png" x="1262" y="246" width="127.4" height="210"/>
+      <rect x="900" y="352" width="350" height="38" fill="#f3c623" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="1075" y="377" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="14">EL SISTEMA AVISA · LAS PERSONAS DECIDEN</text>
+      <rect x="900" y="408" width="170" height="52" fill="#fff" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="985" y="430" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">OPERARIOS</text><text x="985" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="12">tareas y avisos</text>
+      <rect x="1090" y="408" width="170" height="52" fill="#fff" stroke="#1c1d1f" stroke-width="3"/>
+      <text x="1175" y="430" text-anchor="middle" font-family="JetBrains Mono" font-weight="700" font-size="13">ANMAT ✓</text><text x="1175" y="448" text-anchor="middle" font-family="JetBrains Mono" font-size="12">trazabilidad</text>
+      <!-- confirman -->
+      <path d="M900 434 C850 434 800 400 800 328" fill="none" stroke="#d63a2f" stroke-width="3"/>
+      <path d="M792 340 L800 326 L808 340" fill="none" stroke="#d63a2f" stroke-width="3"/>
+      <text x="846" y="392" font-family="JetBrains Mono" font-weight="700" font-size="12" fill="#d63a2f">CONFIRMAN</text>
+    </svg>
     </div>
-    <div class="panel rv" style="--d:.35">
-      <svg viewBox="0 0 760 470">
-        <text x="30" y="40" font-family="JetBrains Mono" font-weight="700" font-size="16">TIEMPO FUERA DE FRÍO · LOTE A-2231</text>
-        <rect x="80" y="210" width="640" height="200" fill="#bfe6f5" opacity=".55"/>
-        <text x="700" y="330" text-anchor="end" font-family="JetBrains Mono" font-size="14" fill="#1c6f8f">TIEMPO PERMITIDO</text>
-        <line x1="80" y1="210" x2="720" y2="210" stroke="#d63a2f" stroke-width="2.5" stroke-dasharray="10 6"/>
-        <text x="100" y="232" font-family="JetBrains Mono" font-size="13" font-weight="700" fill="#d63a2f">LÍMITE 20 MIN</text>
-        <line x1="80" y1="70" x2="80" y2="410" class="ink"/><line x1="80" y1="410" x2="720" y2="410" class="ink"/>
-        <g font-family="JetBrains Mono" font-size="14" text-anchor="end">
-          <text x="70" y="115">30'</text><text x="70" y="215">20'</text><text x="70" y="315">10'</text><text x="70" y="414">0'</text>
-        </g>
-        <g font-family="JetBrains Mono" font-size="13" text-anchor="middle"><text x="140" y="434">recepción</text><text x="400" y="434">clasificación</text><text x="680" y="434">andén</text></g>
-        <path id="tline" d="M80 410 L160 370 L240 370 L320 330 L400 300 L460 270 L520 240 L592 210 L656 190 L720 175" fill="none" stroke="#1c1d1f" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
-        <g class="alertbox">
-          <circle cx="592" cy="210" r="10" fill="#d63a2f"/>
-          <rect x="300" y="76" width="320" height="64" fill="#d63a2f" stroke="#1c1d1f" stroke-width="3"/>
-          <text x="316" y="102" font-family="JetBrains Mono" font-weight="700" font-size="16" fill="#fff">⚠ 20 MIN FUERA DEL FRÍO</text>
-          <text x="316" y="126" font-family="JetBrains Mono" font-size="14" fill="#fff">aviso: volver a la cámara</text>
-          <line x1="560" y1="140" x2="588" y2="200" stroke="#d63a2f" stroke-width="3"/>
-        </g>
-      </svg>
+    <div class="fn6">
+      <div><span class="vk s">Ingreso</span><br>Lee lote y vencimiento</div>
+      <div><span class="vk t">Ubicación</span><br>Vence primero, sale primero</div>
+      <div><span class="vk s">Pedidos</span><br>Urgencias por el fast-track</div>
+      <div><span class="vk s">Despacho</span><br>Confirma e informa a ANMAT</div>
+      <div><span class="vk t">Frío</span><br>Cronometra y avisa</div>
+      <div><span class="vk r">Si se cae</span><br>Lector de mano + GS1 DataMatrix</div>
     </div>
   </div>
 </section>
